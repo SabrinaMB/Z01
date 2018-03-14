@@ -14,3 +14,7 @@ entity Or8Way is
 			q:   out STD_LOGIC);
 end entity;
 
+architecture this_n8 of Or8Way is
+begin
+	q <=  (a or b or c or d or e or f or g or h);
+end this_n8;
