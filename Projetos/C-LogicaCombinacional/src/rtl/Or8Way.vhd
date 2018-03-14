@@ -13,3 +13,4 @@ entity Or8Way is
 			h:   in  STD_LOGIC;
 			q:   out STD_LOGIC);
 end entity;
+
