@@ -14,7 +14,7 @@ architecture barrel8 of BarrelShifter8 is
 begin
 
 
-		q<= a when (size = "000" and dir = '0') else
+		q<= a when (size = "000") else
 			a(6 downto 0) & a(7) when (size = "001" and dir = '0') else
 			a(5 downto 0) & a(7 downto 6) when (size = "010" and dir = '0') else
 			a(4 downto 0) & a(7 downto 5) when (size = "011" and dir = '0') else
