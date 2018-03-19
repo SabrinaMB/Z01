@@ -13,8 +13,8 @@ entity zerador16 is
 end zerador16;
 
 architecture rtl of zerador16 is
-
-
 begin
+
+	y <= a when z = '0' else "0000000000000000";
 
 end architecture;
