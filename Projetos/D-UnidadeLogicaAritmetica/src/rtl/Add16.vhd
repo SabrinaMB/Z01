@@ -18,13 +18,6 @@ end entity;
 
 architecture rtl of Add16 is
 
-component FullAdder is
-	port(
-		a,b,c:      in STD_LOGIC;   -- entradas
-		soma,vaium: out STD_LOGIC;   -- sum e carry
-	);
-end component;
-
 begin
 
 end architecture;
