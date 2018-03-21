@@ -94,4 +94,16 @@ architecture  rtl OF alu IS
 
 begin
 
+	zerax: zerador16 PORT MAP(zx,x,zxout);
+	invx: inversor16 PORT MAP(nx,zxout,nxout);
+	zeray: zerador16 PORT MAP(zy,y,zyout);
+	invy: inversor16 PORT MAP(ny,zyout,nyout);
+	andmais: And16 PORT MAP(nxout,nyout,andout);
+	addmais: Add16 PORT MAP(nxout,nyout,adderout);
+	muxi: Mux16 PORT MAP(andout,adderout,f,muxout);
+	invT: inversor16 PORT MAP(no,muxout,precomp);
+	comp: comparador16 PORT MAP(precomp,zr,ng);
+	saida <= precomp;
+
+
 end architecture;
