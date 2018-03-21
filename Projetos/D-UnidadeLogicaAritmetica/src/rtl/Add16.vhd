@@ -35,7 +35,7 @@ begin
 	f4: FullAdder PORT MAP(a(4),b(4),tmp(3),q(4),tmp(4));
 	f5: FullAdder PORT MAP(a(5),b(5),tmp(4),q(5),tmp(5));
 	f6: FullAdder PORT MAP(a(6),b(6),tmp(5),q(6),tmp(6));
-	f7: sFullAdder PORT MAP(a(7),b(7),tmp(6),q(7),tmp(7));
+	f7: FullAdder PORT MAP(a(7),b(7),tmp(6),q(7),tmp(7));
 	f8: FullAdder PORT MAP(a(8),b(8),tmp(7),q(8),tmp(8));
 	f9: FullAdder PORT MAP(a(9),b(9),tmp(8),q(9),tmp(9));
 	f10: FullAdder PORT MAP(a(10),b(10),tmp(9),q(10),tmp(10));
