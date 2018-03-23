@@ -2,9 +2,9 @@
 -- by Luciano Soares
 -- BinaryDigit.vhd
 
-Library ieee; 
+Library ieee;
 use ieee.std_logic_1164.all;
-  
+
 entity BinaryDigit is
 	port(
 		clock:   in STD_LOGIC;
