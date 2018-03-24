@@ -42,29 +42,34 @@ begin
     test_runner_setup(runner, runner_cfg);
 
 		-- Teste: 0
-		inInput <= "0000000000000000"; inAddress <= "000000"; inLoad <= '1';
+		inInput <= "0000000000000001"; inAddress <= "000000"; inLoad <= '1';
 		wait for 200 ps;
-		assert(outOutput = "0000000000000000")  report "Falha em teste: 0" severity error;
+		assert(outOutput = "0000000000000001")  report "Falha em teste: 0" severity error;
 
 		-- Teste: 1
-		inInput <= "0000000000000000"; inAddress <= "000000"; inLoad <= '1';
+		inInput <= "0000000000000001"; inAddress <= "000000"; inLoad <= '1';
 		wait for 200 ps;
-		assert(outOutput = "0000000000000000")  report "Falha em teste: 1" severity error;
+		assert(outOutput = "0000000000000001")  report "Falha em teste: 1" severity error;
 
 		-- Teste: 2
 		inInput <= "0010101101100111"; inAddress <= "000000"; inLoad <= '0';
 		wait for 200 ps;
-		assert(outOutput = "0000000000000000")  report "Falha em teste: 2" severity error;
+		assert(outOutput = "0000000000000001")  report "Falha em teste: 2" severity error;
 
 		-- Teste: 3
 		inInput <= "0010101101100111"; inAddress <= "000001"; inLoad <= '1';
 		wait for 200 ps;
 		assert(outOutput = "0010101101100111")  report "Falha em teste: 3" severity error;
+			
+		-- TESTE
+		inInput <= "0001111001100001"; inAddress <= "000001"; inLoad <= '0';
+		wait for 200 ps;
+		assert(outOutput = "0010101101100111")  report "Falha em teste: 8" severity error;
 
 		-- Teste: 4
 		inInput <= "0010101101100111"; inAddress <= "000000"; inLoad <= '0';
 		wait for 200 ps;
-		assert(outOutput = "0000000000000000")  report "Falha em teste: 4" severity error;
+		assert(outOutput = "0000000000000001")  report "Falha em teste: 4" severity error;
 
 		-- Teste: 5
 		inInput <= "0000110100000101"; inAddress <= "000011"; inLoad <= '1';

@@ -61,6 +61,11 @@ begin
 		wait for 200 ps;
 		assert(outOutput = "0010101101100111")  report "Falha em teste: 3" severity error;
 
+		-- Teste: 8
+		inInput <= "0001111001100001"; inAddress <= "000000000001"; inLoad <= '0'; 
+		wait for 200 ps;
+		assert(outOutput = "0010101101100111")  report "Falha em teste: 8" severity error;
+
 		-- Teste: 4
 		inInput <= "0010101101100111"; inAddress <= "000000000000"; inLoad <= '0'; 
 		wait for 200 ps;
