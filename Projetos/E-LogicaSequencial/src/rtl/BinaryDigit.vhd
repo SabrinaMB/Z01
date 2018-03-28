@@ -1,5 +1,5 @@
 -- Elementos de Sistemas
--- by Luciano Soares
+-- by Phelipe Muller
 -- BinaryDigit.vhd
 
 Library ieee;
@@ -14,7 +14,8 @@ entity BinaryDigit is
 	);
 end entity;
 
-architecture fds of BinaryDigit is
+architecture arch of BinaryDigit is
+
 
   component Mux2Way is
     port(
@@ -35,11 +36,14 @@ architecture fds of BinaryDigit is
     );
   end component;
 
-  signal tmp,ph: STD_LOGIC;
+
+  signal tmp, ph: STD_LOGIC;
 
 begin
-  mux: Mux2Way PORT MAP (ph,input,load,tmp);
-  flip: FlipFlopD PORT MAP (clock,tmp,'0','0',ph);
-  output <= ph;
+  mux: Mux2Way PORT MAP (ph, input, load, tmp);
+  flip: FlipFlopD PORT MAP (clock, tmp, '0', '0', ph);
+	output <= ph;
+
+
 
 end architecture;

@@ -1,5 +1,5 @@
 -- Elementos de Sistemas
--- by Luciano Soares
+-- by Phelipe Muller
 -- Register64.vhd
 
 Library ieee;

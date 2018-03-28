@@ -1,5 +1,5 @@
 -- Elementos de Sistemas
--- by Luciano Soares
+-- by Phelipe
 -- Register8.vhd
 
 Library ieee;

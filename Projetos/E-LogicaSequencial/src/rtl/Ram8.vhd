@@ -55,18 +55,28 @@ architecture arch of Ram8 is
 
 signal c0, c1, c2, c3, c4, c5, c6, c7: STD_LOGIC_VECTOR(15 downto 0);
 signal s0, s1, s2, s3, s4, s5, s6, s7: STD_LOGIC_VECTOR(15 downto 0);
+signal internalLoad: STD_LOGIC_VECTOR(7 downto 0);
 
 begin
-  Dmux : DMux8Way16 PORT MAP(input, address, c0, c1, c2, c3, c4, c5, c6, c7);
+	internalLoad(0) <= load when (address = "000");
+	internalLoad(1) <= load when (address = "001");
+	internalLoad(2) <= load when (address = "010");
+	internalLoad(3) <= load when (address = "011");
+	internalLoad(4) <= load when (address = "100");
+	internalLoad(5) <= load when (address = "101");
+	internalLoad(6) <= load when (address = "110");
+	internalLoad(7) <= load when (address = "111");
 
-  R0 : Register16 PORT MAP(clock, c0, load, s0);
-  R1 : Register16 PORT MAP(clock, c1, load, s1);
-  R2 : Register16 PORT MAP(clock, c2, load, s2);
-  R3 : Register16 PORT MAP(clock, c3, load, s3);
-  R4 : Register16 PORT MAP(clock, c4, load, s4);
-  R5 : Register16 PORT MAP(clock, c5, load, s5);
-  R6 : Register16 PORT MAP(clock, c6, load, s6);
-  R7 : Register16 PORT MAP(clock, c7, load, s7);
+  Dmux : DMux8Way16 PORT MAP(input, address, c0, c1, c2, c3, c4, c5, c6, c7);
+  R0 : Register16 PORT MAP(clock, c0, internalLoad(0), s0);
+  R1 : Register16 PORT MAP(clock, c1, internalLoad(1), s1);
+  R2 : Register16 PORT MAP(clock, c2, internalLoad(2), s2);
+  R3 : Register16 PORT MAP(clock, c3, internalLoad(3), s3);
+  R4 : Register16 PORT MAP(clock, c4, internalLoad(4), s4);
+  R5 : Register16 PORT MAP(clock, c5, internalLoad(5), s5);
+  R6 : Register16 PORT MAP(clock, c6, internalLoad(6), s6);
+  R7 : Register16 PORT MAP(clock, c7, internalLoad(7), s7);
+	internalLoad <= "00000000";
 
   Mux : Mux8Way16 PORT MAP(s0, s1, s2, s3, s4, s5, s6, s7, address, output);
 
