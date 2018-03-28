@@ -66,15 +66,10 @@ begin
     wait until inClock'event and inClock='0';
 		assert(outOutput = x"FFFF")  report "Falha em teste: 1" severity error;
 
-
     -- Teste: 5
 		inInput <= x"F0F0"; inAddress <= "111"; inLoad <= '0';
     wait until inClock'event and inClock='0';
 		assert(outOutput = x"FFFF")  report "Falha em teste: 1" severity error;
-
-
-
-	
 
     -- finish
     wait until inClock'event and inClock='0';
