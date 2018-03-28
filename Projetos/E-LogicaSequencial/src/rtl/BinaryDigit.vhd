@@ -16,6 +16,7 @@ end entity;
 
 architecture arch of BinaryDigit is
 
+
   component Mux2Way is
     port(
       a: in STD_LOGIC;   -- entradas
@@ -35,11 +36,14 @@ architecture arch of BinaryDigit is
     );
   end component;
 
+
   signal tmp, ph: STD_LOGIC;
 
 begin
   mux: Mux2Way PORT MAP (ph, input, load, tmp);
   flip: FlipFlopD PORT MAP (clock, tmp, '0', '0', ph);
 	output <= ph;
+
+
 
 end architecture;
