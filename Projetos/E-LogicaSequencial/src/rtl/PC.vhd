@@ -26,7 +26,45 @@ end entity;
 
 architecture arch of PC is
 
+component Register8 is
+  port(
+  	clock:   in STD_LOGIC;
+  	input:   in STD_LOGIC_VECTOR(7 downto 0);
+  	load:    in STD_LOGIC;
+  	output: out STD_LOGIC_VECTOR(7 downto 0)
+  );
+end component;
+
+component Inc16 is
+  port(
+		a   :  in STD_LOGIC_VECTOR(15 downto 0);
+		q   : out STD_LOGIC_VECTOR(15 downto 0)
+	);
+end component;
+
+component Mux16 is
+  port(
+    a :  in STD_LOGIC_VECTOR(15 downto 0);
+    b :  in STD_LOGIC_VECTOR(15 downto 0);
+    sel :  in STD_LOGIC;
+    q :  out STD_LOGIC_VECTOR(15 downto 0)
+    );
+end component;
+
+signal output_temp: STD_LOGIC_VECTOR(15 downto 0);
+
 begin
-
-
+  process(clock, reset, load, increment)
+  begin
+    if (reset = '1') then
+      output_temp <= "0000000000000000";
+    elsif (load = '1') then
+      output_temp <= input;
+    elsif (increment = '1') then
+      output_temp <= std_logic_vector( unsigned(output_temp) + 1 );
+    else
+      output_temp <= output_temp;
+    end if;
+end process;
+	output <= output_temp;
 end architecture;

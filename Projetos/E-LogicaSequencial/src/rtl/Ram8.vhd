@@ -59,6 +59,15 @@ signal internalLoad: STD_LOGIC_VECTOR(7 downto 0);
 
 begin
 
+  internalLoad(0) <= load when (address = "000");
+ internalLoad(1) <= load when (address = "001");
+ internalLoad(2) <= load when (address = "010");
+ internalLoad(3) <= load when (address = "011");
+ internalLoad(4) <= load when (address = "100");
+ internalLoad(5) <= load when (address = "101");
+ internalLoad(6) <= load when (address = "110");
+ internalLoad(7) <= load when (address = "111");
+
   Dmux : DMux8Way16 PORT MAP(input, address, c0, c1, c2, c3, c4, c5, c6, c7);
   R0 : Register16 PORT MAP(clock, c0, internalLoad(0), s0);
   R1 : Register16 PORT MAP(clock, c1, internalLoad(1), s1);

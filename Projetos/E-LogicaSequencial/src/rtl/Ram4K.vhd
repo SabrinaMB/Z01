@@ -65,6 +65,16 @@ begin
 	a0 <= address(8 downto 0);
 	a1 <= address(11 downto 9);
 
+ internalLoad <= "00000000";
+ internalLoad(0) <= load when (a1 = "000");
+ internalLoad(1) <= load when (a1 = "001");
+ internalLoad(2) <= load when (a1 = "010");
+ internalLoad(3) <= load when (a1 = "011");
+ internalLoad(4) <= load when (a1 = "100");
+ internalLoad(5) <= load when (a1 = "101");
+ internalLoad(6) <= load when (a1 = "110");
+ internalLoad(7) <= load when (a1 = "111");
+
 
 	Dmux : DMux8Way16 PORT MAP(input, a1, c0, c1, c2, c3, c4, c5, c6, c7);
 
