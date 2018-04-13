@@ -5,3 +5,4 @@
 
 ; Adicione o valor de RAM[1] com RAM[0] gravando em RAM[2].
 
+addw R1, R0, R2
