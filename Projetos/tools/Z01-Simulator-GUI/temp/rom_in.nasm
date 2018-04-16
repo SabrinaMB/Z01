@@ -1,28 +1,14 @@
-<<<<<<< HEAD
-leaw $0, %A
-movw (%A), %D
-leaw $1, %A
-subw %D, (%A), %D
-leaw $10, %A
-jl %D
-nop
 leaw $1, %A
 movw (%A), %D
-leaw $2, %A
-movw %D, (%A)
-=======
 leaw $8, %A
+jge %D
+nop
+notw %D
+leaw $1, %A
+subw %A, %D, %D
+leaw $0, %A
+movw %D, (%A)
 
-
-
-
-
-
-
-
-
-
->>>>>>> upstream/master
 
 
 
