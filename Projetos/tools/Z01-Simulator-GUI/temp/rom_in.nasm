@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 leaw $0, %A
 movw (%A), %D
 leaw $1, %A
@@ -11,6 +12,21 @@ jne %S
 nop
 leaw $3, %A
 movw %D, (%A)
+=======
+leaw $8, %A
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> origin/abs
 
 
 

@@ -5,12 +5,17 @@
 -- to be used on ALTERA FPGAs
 
 WIDTH=16;
+<<<<<<< HEAD
 DEPTH=13;
+=======
+DEPTH=1;
+>>>>>>> origin/abs
 
 ADDRESS_RADIX=UNS;
 DATA_RADIX=BIN;
 
 CONTENT BEGIN
+<<<<<<< HEAD
        0 : 0000000000000000;
        1 : 1111100000010000;
        2 : 0000000000000001;
@@ -24,4 +29,7 @@ CONTENT BEGIN
       10 : 1101010100000000;
       11 : 0000000000000011;
       12 : 1100011000001000;
+=======
+       0 : 0000000000001000;
+>>>>>>> origin/abs
 END;

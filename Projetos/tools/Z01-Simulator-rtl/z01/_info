@@ -1343,6 +1343,7 @@ R161
 R5
 R6
 Eram16k
+<<<<<<< HEAD
 Z162 w1523890646
 R7
 R8
@@ -1350,17 +1351,34 @@ R9
 Z163 dD:/EleSist/Projeto/git/Z01/Projetos/tools/Z01-Simulator-rtl
 Z164 8./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
 Z165 F./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
+=======
+Z154 w1523648682
+Z155 DPx9 altera_mf 20 altera_mf_components 0 22 :YRc5<ojH^WgP]^Vezi9c1
+R2
+R3
+Z156 d/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01/Projetos/tools/Z01-Simulator-rtl
+Z157 8./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
+Z158 F./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
+>>>>>>> origin/abs
 l0
 L45
 VKBL5>Ro7hBH5PI405F^?D2
 !s100 z;gX9;^C^]PK>DXWS[V?j0
 R13
 32
+<<<<<<< HEAD
 Z166 !s110 1523892507
 !i10b 1
 Z167 !s108 1523892507.000000
 R3
 R4
+=======
+Z159 !s110 1523718593
+!i10b 1
+Z160 !s108 1523718593.000000
+Z161 !s90 -work|z01|./Modulos/dispositivos/RAM_fpga/RAM16K.vhd|
+Z162 !s107 ./Modulos/dispositivos/RAM_fpga/RAM16K.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1696,6 +1714,7 @@ R201
 R5
 R6
 Erom32k
+<<<<<<< HEAD
 R162
 R7
 R8
@@ -1703,6 +1722,15 @@ R9
 R163
 Z202 8./Modulos/dispositivos/ROM/ROM32K.vhd
 Z203 F./Modulos/dispositivos/ROM/ROM32K.vhd
+=======
+Z197 w1523648711
+R155
+R2
+R3
+R156
+Z198 8./Modulos/dispositivos/ROM/ROM32K.vhd
+Z199 F./Modulos/dispositivos/ROM/ROM32K.vhd
+>>>>>>> origin/abs
 l0
 L43
 VzOAIIE]WTk]@4lD?I:<F?2
@@ -1711,13 +1739,20 @@ R13
 32
 R166
 !i10b 1
+<<<<<<< HEAD
 R167
 Z204 !s90 -work|z01|./Modulos/dispositivos/ROM/ROM32K.vhd|
 Z205 !s107 ./Modulos/dispositivos/ROM/ROM32K.vhd|
+=======
+R160
+Z200 !s90 -work|z01|./Modulos/dispositivos/ROM/ROM32K.vhd|
+Z201 !s107 ./Modulos/dispositivos/ROM/ROM32K.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
 Asyn
+<<<<<<< HEAD
 R7
 R8
 R9
@@ -1727,12 +1762,29 @@ L53
 Z207 VOo;UU8bQPOid=LU9HIAd:3
 Z208 !s100 HJ7WIU6OX3JIG4hXd^iKe3
 R13
+=======
+R155
+R2
+R3
+Z202 DEx4 work 6 rom32k 0 22 zOAIIE]WTk]@4lD?I:<F?2
+l57
+L53
+Z203 VOo;UU8bQPOid=LU9HIAd:3
+Z204 !s100 HJ7WIU6OX3JIG4hXd^iKe3
+R6
+>>>>>>> origin/abs
 32
 R166
 !i10b 1
+<<<<<<< HEAD
 R167
 R204
 R205
+=======
+R160
+R200
+R201
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1741,8 +1793,13 @@ R14
 R8
 R9
 R0
+<<<<<<< HEAD
 Z209 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd
 Z210 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd
+=======
+Z205 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd
+Z206 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd
+>>>>>>> origin/abs
 l0
 L13
 V45:a:E]:[_Kn?YFVmO72_1
@@ -1751,9 +1808,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 Z211 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd|
 Z212 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd|
+=======
+R182
+Z207 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd|
+Z208 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPIPO16.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1769,9 +1832,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 R211
 R212
+=======
+R182
+R207
+R208
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1780,8 +1849,13 @@ R14
 R8
 R9
 R0
+<<<<<<< HEAD
 Z213 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd
 Z214 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd
+=======
+Z209 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd
+Z210 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd
+>>>>>>> origin/abs
 l0
 L14
 V;8VmS@Eckk^TjdFRT_bZz1
@@ -1790,9 +1864,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 Z215 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd|
 Z216 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd|
+=======
+R182
+Z211 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd|
+Z212 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterPISO16.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1808,9 +1888,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 R215
 R216
+=======
+R182
+R211
+R212
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1819,8 +1905,13 @@ R14
 R8
 R9
 R0
+<<<<<<< HEAD
 Z217 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd
 Z218 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd
+=======
+Z213 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd
+Z214 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd
+>>>>>>> origin/abs
 l0
 L11
 Vj<DhAjBiQTLG[d>d@=OBk0
@@ -1829,9 +1920,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 Z219 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd|
 Z220 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd|
+=======
+R182
+Z215 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd|
+Z216 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSIPO16.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1847,9 +1944,15 @@ R13
 32
 R186
 !i10b 1
+<<<<<<< HEAD
 R187
 R219
 R220
+=======
+R182
+R215
+R216
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1858,19 +1961,32 @@ R14
 R8
 R9
 R0
+<<<<<<< HEAD
 Z221 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd
 Z222 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd
+=======
+Z217 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd
+Z218 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd
+>>>>>>> origin/abs
 l0
 L11
 Vffl_:0Qoe_a<G89C31]Rm2
 !s100 9@bkbdQXR<iiTM8jEgV]z1
 R13
 32
+<<<<<<< HEAD
 Z223 !s110 1523641410
 !i10b 1
 R187
 Z224 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd|
 Z225 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd|
+=======
+Z219 !s110 1523641410
+!i10b 1
+R182
+Z220 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd|
+Z221 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/ShiftRegisterSISO16.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1884,11 +2000,19 @@ VamWf7G`:mzZ9d7]5S;D_A0
 !s100 2HTD00GcNi>_9cJd9<I?40
 R13
 32
+<<<<<<< HEAD
 R223
 !i10b 1
 R187
 R224
 R225
+=======
+R219
+!i10b 1
+R182
+R220
+R221
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1897,19 +2021,32 @@ R14
 R8
 R9
 R0
+<<<<<<< HEAD
 Z226 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd
 Z227 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd
+=======
+Z222 8/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd
+Z223 F/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd
+>>>>>>> origin/abs
 l0
 L8
 V3e;S<Cz_WM39cMJ:4R@:n0
 !s100 5[I:HNEI56WNfSm5f^c2U1
 R13
 32
+<<<<<<< HEAD
 R223
 !i10b 1
 Z228 !s108 1523641410.000000
 Z229 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd|
 Z230 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd|
+=======
+R219
+!i10b 1
+Z224 !s108 1523641410.000000
+Z225 !s90 -reportprogress|300|-work|z01|/home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd|
+Z226 !s107 /home/corsi/Dropbox/Insper/3s-ElementoDeSistemas/5-Repositorios/Z01-Privado/Projetos/tools/Modulos/zerador16.vhd|
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
@@ -1923,11 +2060,19 @@ VONHE5eYVDLb3S<e@AcoU`1
 !s100 XY4EVDd<e16hDRO`>_9ja2
 R13
 32
+<<<<<<< HEAD
 R223
 !i10b 1
 R228
 R229
 R230
+=======
+R219
+!i10b 1
+R224
+R225
+R226
+>>>>>>> origin/abs
 !i113 1
 R5
 R6
