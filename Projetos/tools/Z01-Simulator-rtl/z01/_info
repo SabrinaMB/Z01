@@ -1308,11 +1308,19 @@ R153
 R11
 R12
 Eram16k
+<<<<<<< HEAD
 Z154 w1523889957
 Z155 DPx9 altera_mf 20 altera_mf_components 0 22 Sn8Ol<dGSW99iM6NfOU>g1
 R2
 R3
 Z156 d/home/sabrina/Documentos/Elementos/Z01/Projetos/tools/Z01-Simulator-rtl
+=======
+Z154 w1523896862
+Z155 DPx9 altera_mf 20 altera_mf_components 0 22 Sn8Ol<dGSW99iM6NfOU>g1
+R2
+R3
+Z156 dD:/EleSist/Projeto/git/Z01/Projetos/tools/Z01-Simulator-rtl
+>>>>>>> master
 Z157 8./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
 Z158 F./Modulos/dispositivos/RAM_fpga/RAM16K.vhd
 l0
@@ -1321,9 +1329,15 @@ VKBL5>Ro7hBH5PI405F^?D2
 !s100 z;gX9;^C^]PK>DXWS[V?j0
 R6
 32
+<<<<<<< HEAD
 Z159 !s110 1523895345
 !i10b 1
 Z160 !s108 1523895345.000000
+=======
+Z159 !s110 1523897103
+!i10b 1
+Z160 !s108 1523897103.000000
+>>>>>>> master
 Z161 !s90 -work|z01|./Modulos/dispositivos/RAM_fpga/RAM16K.vhd|
 Z162 !s107 ./Modulos/dispositivos/RAM_fpga/RAM16K.vhd|
 !i113 1
