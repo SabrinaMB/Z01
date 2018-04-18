@@ -1,4 +1,7 @@
+<<<<<<< HEAD:Projetos/tools/Z01-Simulator-rtl/do/sim.do
 <<<<<<< HEAD
+=======
+>>>>>>> upstream/master:Projetos/tools/Z01-Simulator-rtl-2/do/sim.do
 ################################
 # Desabilita alguns warnings
 ################################
@@ -37,7 +40,11 @@ add wave -position end sim:/computador_tb/c1/MAIN_CPU/*
 # Executa simulação
 ################################
 
+<<<<<<< HEAD:Projetos/tools/Z01-Simulator-rtl/do/sim.do
 run 1000 ns
+=======
+run 1010 ns
+>>>>>>> upstream/master:Projetos/tools/Z01-Simulator-rtl-2/do/sim.do
 
 ################################
 # Exporta resultado (list)
@@ -66,6 +73,7 @@ exit
 
 
 
+<<<<<<< HEAD:Projetos/tools/Z01-Simulator-rtl/do/sim.do
 =======
 ################################
 # Desabilita alguns warnings
@@ -135,3 +143,5 @@ exit
 
 
 >>>>>>> upstream/master
+=======
+>>>>>>> upstream/master:Projetos/tools/Z01-Simulator-rtl-2/do/sim.do

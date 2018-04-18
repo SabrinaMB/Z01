@@ -21,8 +21,12 @@ if __name__ == "__main__":
     # tenta detectar a versão do python do sistema
     # se python2 for a padrão, forca a execucao
     # com python 3
+<<<<<<< HEAD
     pversion = platform.python_version()
     if pversion is '3' :
         os.system('python main.py')
     else:
         os.system('python main.py')
+=======
+    os.system('python main.py')
+>>>>>>> upstream/master
