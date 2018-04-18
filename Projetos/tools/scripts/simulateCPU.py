@@ -137,18 +137,7 @@ def simulateCPU(ramIn, romIn, ramOut, time, debug, verbose):
 
     print(TEMP_IN_RAM_MIF)
 
-    print("wdkawkwadkdawkdkwadwkadwkadwkk")
 
-    try:
-            os.remove(OUT_RAM_MEM)
-            os.remove(OUT_ROM_MEM)
-            os.remove(OUT_SIM_LST)
-            print("removido")
-    except:
-            print("simulateCPU: Falha em remove arquivos")
-            pass
-
-    return(0)
 
     try:
         shutil.copyfile(ramIn, TEMP_IN_RAM_MIF)

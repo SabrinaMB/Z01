@@ -23,6 +23,6 @@ if __name__ == "__main__":
     # com python 3
     pversion = platform.python_version()
     if pversion is '3' :
-        os.system('python3 main.py')
+        os.system('python main.py')
     else:
-        os.system('python3 main.py')
+        os.system('python main.py')
