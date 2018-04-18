@@ -19,6 +19,7 @@ addw %D, (%A), %D
 
 decw %S
 leaw $5, %A
+
 jne %S
 nop
 leaw $0, %A
