@@ -137,11 +137,6 @@ def simulateCPU(ramIn, romIn, ramOut, time, debug, verbose):
 
     print(TEMP_IN_RAM_MIF)
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> upstream/master
     try:
         shutil.copyfile(ramIn, TEMP_IN_RAM_MIF)
         shutil.copyfile(romIn, TEMP_IN_ROM_MIF)
