@@ -1,4 +1,4 @@
-; Arquivo: Abs.nasm
+; Arquivo: sub.nasm
 ; Curso: Elementos de Sistemas
 ; Criado por: Luciano Soares
 ; Data: 27/03/2017
