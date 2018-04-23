@@ -51,19 +51,21 @@ component Mux16 is
     );
 end component;
 
-signal output_temp: STD_LOGIC_VECTOR(15 downto 0);
+signal output_temp: STD_LOGIC_VECTOR(15 downto 0) := (OTHERS => '0');
 
 begin
   process(clock, reset, load, increment)
   begin
-    if (reset = '1') then
-      output_temp <= "0000000000000000";
-    elsif (load = '1') then
-      output_temp <= input;
-    elsif (increment = '1') then
-      output_temp <= std_logic_vector( unsigned(output_temp) + 1 );
-    else
-      output_temp <= output_temp;
+    if rising_edge(clock) then
+      if (reset = '1') then
+        output_temp <= "0000000000000000";
+      elsif (load = '1') then
+        output_temp <= input;
+      elsif (increment = '1') then
+        output_temp <= std_logic_vector( unsigned(output_temp) + 1 );
+      else
+        output_temp <= output_temp;
+      end if;
     end if;
 end process;
 	output <= output_temp;
