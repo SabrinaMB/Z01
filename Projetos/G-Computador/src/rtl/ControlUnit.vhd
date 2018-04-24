@@ -20,11 +20,12 @@ entity ControlUnit is
                                                                      -- Mem. RAM e Program Counter
     );
 end entity;
-
 architecture arch of ControlUnit is
+signal mux: STD_LOGIC; 
 begin
 
 muxALUI_A <= not instruction(15);
+mux <= not instruction(15);
 muxAM_ALU <= instruction(14);
 muxSD_ALU <= instruction(13);
 
@@ -35,19 +36,19 @@ ny <= instruction(9);
 f <= instruction(8);
 no <= instruction(7);
 
-loadA <= '1' when muxALUI_A else
+loadA <= '1' when mux else
           instruction(6);
 
-loadS <= '0' when muxALUI_A else
+loadS <= '0' when mux else
          instruction(5);
 
-loadD <= '0' when muxALUI_A else
+loadD <= '0' when mux else
          instruction(4);
 
-loadM <= '0' when muxALUI_A else
+loadM <= '0' when mux else
           instruction(3);
 
-loadPC <= '0' when muxALUI_A else
+loadPC <= '0' when mux else
           '1' when instruction(2) and ng else
           '1' when instruction(1) and zr else
           '1' when instruction(0) and not ng and not zr else
