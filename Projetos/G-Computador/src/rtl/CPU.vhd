@@ -105,19 +105,18 @@ architecture arch of CPU is
 
 begin
 
-  muxALUI: Mux16 PORT MAP (s_ALUout,s_loadA,s_muxALUI_A,s_muxALUI_Aout);
-  muxAM: Mux16 PORT MAP (s_regAout, inM, s_muxAM_ALU, s_muxAM_ALUout);
-  muxSD: Mux16 PORT MAP (s_regSout, s_regDout, s_muxSD_ALU, s_muxSDout);
+  muxALUI_port: Mux16 PORT MAP (s_ALUout,instruction,s_muxALUI_A,s_muxALUI_Aout);
+  muxAM_port: Mux16 PORT MAP (s_regAout, inM, s_muxAM_ALU, s_muxAM_ALUout);
+  muxSD_port: Mux16 PORT MAP (s_regSout, s_regDout, s_muxSD_ALU, s_muxSDout);
   RgA: Register16 PORT MAP (clock, s_muxALUI_Aout, s_loadA, s_regAout);
   RgS: Register16 PORT MAP (clock, s_ALUout, s_loadS, s_regSout);
   RgD: Register16 PORT MAP (clock, s_ALUout, s_loadD, s_regDout);
-  PC: PC PORT MAP (clock, '1', s_loadPC, reset, s_regAout, s_pcout);
-  ALU: ALU PORT MAP (s_muxSDout, s_muxAM_ALUout,s_zx, s_nx, s_zy, s_ny, s_f, s_no, s_zr, s_ng, s_ALUout);
-  ControU: ControlUnit PORT MAP (instruction, s_zr, s_ng, s_muxALUI_A, s_muxAM_ALU, s_muxSD_ALU, s_zx, s_nx, s_zy, s_ny,, s_f, s_no, s_loadA, s_loadD, s_loadS, s_loadM, s_loadPC);
+  PC_port: PC PORT MAP (clock, '1', s_loadPC, reset, s_regAout, s_pcout);
+  ALU_port: ALU PORT MAP (s_muxSDout, s_muxAM_ALUout,s_zx, s_nx, s_zy, s_ny, s_f, s_no, s_zr, s_ng, s_ALUout);
+  ControU: ControlUnit PORT MAP (instruction, s_zr, s_ng, s_muxALUI_A, s_muxAM_ALU, s_muxSD_ALU, s_zx, s_nx, s_zy, s_ny, s_f, s_no, s_loadA, s_loadD, s_loadS, writeM, s_loadPC);
 
   outM <= s_ALUout;
-  writeM <= s_loadM;
-  addressM <= s_regAout;
-  pcout <= s_pcout;
+  addressM <= s_regAout(14 downto 0);
+  pcout <= s_pcout(14 downto 0);
 
 end architecture;
