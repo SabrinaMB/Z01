@@ -125,7 +125,7 @@ BEGIN
     locked   => PLL_LOCKED
      );
 
- 	ROM32K_inst: ROM32K PORT MAP(
+ 	ROM: ROM32K PORT MAP(
  	address => ADDRESS, 
  	clock => CLK_SLOW, 
  	q => INSTRUCTION
@@ -142,7 +142,7 @@ BEGIN
 	pcout => PC
 	);
 
-	MemoryIO_inst: MemoryIO PORT MAP(
+	MEMORY_MAPED: MemoryIO PORT MAP(
 	CLK_SLOW => CLK_SLOW,
 	CLK_FAST => CLK_FAST,
 	RST => RST_MEM,
