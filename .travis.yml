@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 ﻿# Refs
+=======
+# Refs
+>>>>>>> upstream/master
 # customizing the boot
 #   - https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
 
 # Sudo enabled faz com que o travis inicialize
 # uma máquina ubuntu full, caso contrário
+<<<<<<< HEAD
 # ele inicializa um docker .
+=======
+# ele inicializa um docker.
+>>>>>>> upstream/master
 # com a contrapartida de levar mais tempo no boot
 # ref : https://docs.travis-ci.com/user/reference/overview/
 sudo: enabled
@@ -29,7 +37,11 @@ before_script:
   - sudo apt-get install build-essential
   - sudo apt-get install gcc-multilib g++-multilib lib32z1 lib32stdc++6 lib32gcc1 expat:i386 fontconfig:i386 libfreetype6:i386 libexpat1:i386 libc6:i386 libgtk-3-0:i386 libcanberra0:i386 libpng12-0:i386 libice6:i386 libsm6:i386 libncurses5:i386 zlib1g:i386 libx11-6:i386 libxau6:i386 libxdmcp6:i386 libxext6:i386 libxft2:i386 libxrender1:i386 libxt6:i386 libxtst6:i386
 
+<<<<<<< HEAD
 # modelSim 
+=======
+# modelSim
+>>>>>>> upstream/master
 # download
   - wget http://download.altera.com/akdlm/software/acdsinst/17.1std/590/ib_installers/ModelSimSetup-17.1.0.590-linux.run -O modelsim.run
 # instal modelsim
@@ -44,6 +56,10 @@ before_script:
 script:
   - python Projetos/0-Infra/testeVHDL.py
   - python Projetos/C-LogicaCombinacional/script/testeLogicaCombinacional.py
+<<<<<<< HEAD
   - python Projetos/D-UnidadeLogicaAritmetica/script/testeULA.py
   - python Projetos/E-LogicaSequencial/script/testeLogicaSequencial.py
   - python Projetos/F-Assembly/scripts/testeAssembly.py
+=======
+    
+>>>>>>> upstream/master

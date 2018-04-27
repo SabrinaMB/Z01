@@ -69,6 +69,7 @@ ARCHITECTURE logic OF MemoryIO IS
       );
   end component;
 
+<<<<<<< HEAD
 signal LOADSC LOADRAM STD_LOGIC;
 
 BEGIN
@@ -82,4 +83,9 @@ LOADRAM <= '0' when LOAD else
 Ram: RAM16K PORT MAP(ADDRESS(13 downto 0),CLK_FAST,INPUT,LOADRAM,OUTPUT);
 Sc: Screen PORT MAP(INPUT,LOADSC,ADDRESS(13 downto 0),CLK_FAST,CLK_SLOW,RST,LCD_INIT_OK,LCD_CS_N,LCD_D,LCD_RD_N,LCD_RESET_N,LCD_RS,LCD_WR_N)
 LED <= SW;
+=======
+BEGIN
+
+
+>>>>>>> upstream/master
 END logic;

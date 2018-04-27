@@ -12,9 +12,13 @@ entity Or8Way is
 			g:   in  STD_LOGIC;
 			h:   in  STD_LOGIC;
 			q:   out STD_LOGIC);
+<<<<<<< HEAD
 end entity;
 
 architecture this_n8 of Or8Way is
 begin
 	q <=  (a or b or c or d or e or f or g or h);
 end this_n8;
+=======
+end entity;
+>>>>>>> upstream/master

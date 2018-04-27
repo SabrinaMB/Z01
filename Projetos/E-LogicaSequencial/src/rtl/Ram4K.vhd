@@ -1,10 +1,19 @@
 -- Elementos de Sistemas
+<<<<<<< HEAD
 -- by Phelipe Muller
 -- Ram4K.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
+=======
+-- by Luciano Soares
+-- Ram4K.vhd
+
+Library ieee; 
+use ieee.std_logic_1164.all;
+  
+>>>>>>> upstream/master
 entity Ram4K is
 	port(
 		clock:   in  STD_LOGIC;
@@ -14,6 +23,7 @@ entity Ram4K is
 		output:  out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end entity;
+<<<<<<< HEAD
 
 architecture arch of Ram4K is
 
@@ -91,3 +101,5 @@ begin
 
 
 end architecture;
+=======
+>>>>>>> upstream/master

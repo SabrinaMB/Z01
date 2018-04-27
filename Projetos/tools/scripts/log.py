@@ -28,8 +28,13 @@ def logTest(s):
     print(colored(s,cTest))
 
 def logError(s):
+<<<<<<< HEAD
         print(colored(s,cError))
 
 if __name__ == "__main__":
     logError("LogError")
     logMsg("logMsg")
+=======
+    print(colored(s,cError))
+
+>>>>>>> upstream/master

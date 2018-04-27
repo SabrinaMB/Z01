@@ -11,7 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
+<<<<<<< HEAD
         Dialog.resize(482, 128)
+=======
+        Dialog.resize(482, 241)
+>>>>>>> upstream/master
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -26,6 +30,7 @@ class Ui_Dialog(object):
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.assemblerLineEdit)
         self.alterarButton = QtWidgets.QPushButton(Dialog)
         self.alterarButton.setObjectName("alterarButton")
+<<<<<<< HEAD
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.alterarButton)
         self.procurarButton = QtWidgets.QPushButton(Dialog)
         self.procurarButton.setObjectName("procurarButton")
@@ -36,6 +41,24 @@ class Ui_Dialog(object):
         self.simGUIBox = QtWidgets.QCheckBox(Dialog)
         self.simGUIBox.setObjectName("simGUIBox")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.simGUIBox)
+=======
+        self.formLayout.setWidget(6, QtWidgets.QFormLayout.FieldRole, self.alterarButton)
+        self.label_2 = QtWidgets.QLabel(Dialog)
+        self.label_2.setObjectName("label_2")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_2)
+        self.simGUIBox = QtWidgets.QCheckBox(Dialog)
+        self.simGUIBox.setObjectName("simGUIBox")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.simGUIBox)
+        self.procurarButton = QtWidgets.QPushButton(Dialog)
+        self.procurarButton.setObjectName("procurarButton")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.procurarButton)
+        self.pastaRTL = QtWidgets.QLabel(Dialog)
+        self.pastaRTL.setObjectName("pastaRTL")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.pastaRTL)
+        self.rtlLineEdit = QtWidgets.QLineEdit(Dialog)
+        self.rtlLineEdit.setObjectName("rtlLineEdit")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.rtlLineEdit)
+>>>>>>> upstream/master
         self.verticalLayout.addLayout(self.formLayout)
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
@@ -45,9 +68,18 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+<<<<<<< HEAD
         self.label.setText(_translate("Dialog", "Comando (Assembler):"))
         self.alterarButton.setText(_translate("Dialog", "Alterar"))
         self.procurarButton.setText(_translate("Dialog", "Procurar"))
         self.label_2.setText(_translate("Dialog", "Opções"))
         self.simGUIBox.setText(_translate("Dialog", "Abrir GUI do Modelsim após simular"))
+=======
+        self.label.setText(_translate("Dialog", "Assembler:"))
+        self.alterarButton.setText(_translate("Dialog", "Alterar"))
+        self.label_2.setText(_translate("Dialog", "Opções"))
+        self.simGUIBox.setText(_translate("Dialog", "Abrir GUI do Modelsim após simular"))
+        self.procurarButton.setText(_translate("Dialog", "Procurar"))
+        self.pastaRTL.setText(_translate("Dialog", "Pasta RTL (Z01):"))
+>>>>>>> upstream/master
 

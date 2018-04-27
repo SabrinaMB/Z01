@@ -1,10 +1,19 @@
 -- Elementos de Sistemas
+<<<<<<< HEAD
 -- by Phelipe
 -- Register8.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
+=======
+-- by Luciano Soares
+-- Register8.vhd
+
+Library ieee; 
+use ieee.std_logic_1164.all;
+  
+>>>>>>> upstream/master
 entity Register8 is
 	port(
 		clock:   in STD_LOGIC;
@@ -13,6 +22,7 @@ entity Register8 is
 		output: out STD_LOGIC_VECTOR(7 downto 0)
 	);
 end entity;
+<<<<<<< HEAD
 
 architecture arch of Register8 is
 
@@ -36,3 +46,5 @@ begin
   B7 : BinaryDigit PORT MAP(clock,input(7),load,output(7));
 
 end architecture;
+=======
+>>>>>>> upstream/master

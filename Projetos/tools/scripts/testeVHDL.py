@@ -12,6 +12,10 @@ import os
 
 # vnuit para vhdl
 from vunit import VUnitCLI, VUnit
+<<<<<<< HEAD
+=======
+from log import logError
+>>>>>>> upstream/master
 
 # config file
 CONFIG_FILE = "config.txt"
@@ -53,7 +57,11 @@ class vhdlScript(object):
 
     def add_src_lib(self, path):
         for filename in os.listdir(path):
+<<<<<<< HEAD
             if(filename.split(".")[-1]=="vhd"):
+=======
+            if(filename.split(".")[-1] == "vhd"):
+>>>>>>> upstream/master
                 if filename[0]  != '.':
                     self.lib.add_source_files(path+filename)
 

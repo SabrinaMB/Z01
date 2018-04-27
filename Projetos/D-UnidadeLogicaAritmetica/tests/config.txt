@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 ﻿# Testes a serem executados
 # Descomente os módulos que deseja testar
 
 
+=======
+# Testes a serem executados
+# Descomente os módulos que deseja testar
+
+>>>>>>> upstream/master
 FullAdder.vhd
 HalfAdder.vhd
 Add16.vhd
@@ -10,3 +16,7 @@ comparador16.vhd
 inversor16.vhd
 zerador16.vhd
 ALU.vhd
+<<<<<<< HEAD
+=======
+  
+>>>>>>> upstream/master

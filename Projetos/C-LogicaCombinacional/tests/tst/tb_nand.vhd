@@ -15,7 +15,11 @@ end entity;
 
 architecture tb of tb_nand is
 
+<<<<<<< HEAD
   component nand_z01 is
+=======
+  component nand_vhdl is
+>>>>>>> upstream/master
     port(a:in  STD_LOGIC;
          b:in  STD_LOGIC;
          q:out STD_LOGIC
@@ -30,7 +34,11 @@ architecture tb of tb_nand is
 
 begin
 
+<<<<<<< HEAD
   mapping: nand_z01 port map(inA, inB, outQ);
+=======
+  mapping: nand_vhdl port map(inA, inB, outQ);
+>>>>>>> upstream/master
 
   main : process
   begin

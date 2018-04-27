@@ -17,6 +17,7 @@ end entity;
 
 architecture arch of FlipFlopD is
 begin
+<<<<<<< HEAD
 	process (clock,preset,clear)
 	begin
 		if (clear = '1') then
@@ -27,4 +28,8 @@ begin
 			q<=d;
 		end if;
 	end process;
+=======
+
+
+>>>>>>> upstream/master
 end architecture;

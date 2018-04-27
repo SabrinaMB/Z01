@@ -125,6 +125,7 @@ BEGIN
     locked   => PLL_LOCKED
      );
 
+<<<<<<< HEAD
  	ROM32K_inst: ROM32K PORT MAP(
  	address => ADDRESS, 
  	clock => CLK_SLOW, 
@@ -161,12 +162,15 @@ BEGIN
 	SW => SW,
 	LED => LEDR
 	);
+=======
+>>>>>>> upstream/master
 
   -- Resets
   RST_CPU <= RESET or (not LCD_INIT_OK) or (not PLL_LOCKED); -- REINICIA CPU
 	RST_MEM <= RESET or (not PLL_LOCKED);                      -- REINICIA MemoryIO
 	RESET   <= NOT RESET_N;
 
+<<<<<<< HEAD
   -- LCD on
   LCD_ON <= '1';
 
@@ -176,3 +180,6 @@ end logic;
 
 
 
+=======
+end logic;
+>>>>>>> upstream/master

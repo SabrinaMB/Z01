@@ -14,6 +14,7 @@ entity comparador16 is
 end comparador16;
 
 architecture rtl of comparador16 is
+<<<<<<< HEAD
 begin
 	zr <=  not(	a	(	0	)	or
 	a	(	1	)	or
@@ -36,3 +37,9 @@ begin
 	ng <= a(15) ;
 
 end rtl;
+=======
+
+begin
+
+end architecture;
+>>>>>>> upstream/master

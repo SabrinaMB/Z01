@@ -14,6 +14,7 @@ entity FullAdder is
 	);
 end entity;
 
+<<<<<<< HEAD
 
 
 architecture rtl of FullAdder is
@@ -31,4 +32,10 @@ begin
 	full: HalfAdder PORT MAP (a, b, tmp, t);
 	full2: HalfAdder PORT MAP (c, tmp, soma, q);
 	vaium <= q or t;
+=======
+architecture rtl of FullAdder is
+
+begin
+
+>>>>>>> upstream/master
 end architecture;

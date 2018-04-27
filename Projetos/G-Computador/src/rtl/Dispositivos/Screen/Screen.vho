@@ -92,7 +92,17 @@ SIGNAL state : State_Type;    -- Create a signal that uses
 
 BEGIN
 
+<<<<<<< HEAD
 
 LCD_INIT_OK  <= '1';
+=======
+process
+begin
+LCD_INIT_OK  <= '0';
+wait until clk_slow = '0';
+LCD_INIT_OK  <= '1';
+wait ;
+end process;
+>>>>>>> upstream/master
 
 END logic;
