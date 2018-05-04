@@ -5,12 +5,23 @@
 
 package assembler;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
  * Encapsula o código de leitura. Carrega as instruções na linguagem assembly,
  * analisa, e oferece acesso as partes da instrução  (campos e símbolos).
  * Além disso, remove todos os espaços em branco e comentários.
  */
 public class Parser {
+	LinkedList<String> commands;
+	LinkedList<String> dirty;
+	String command;
+	Scanner reader;
+	
 
     /** Enumerator para os tipos de comandos do Assembler. */
     public enum CommandType {
@@ -24,17 +35,38 @@ public class Parser {
      * @param file arquivo NASM que será feito o parser.
      */
     public Parser(String file) {
+    	 File arquivo = new File(file);
 
-    }
+    	    try {
+
+    	        reader = new Scanner(arquivo);
+
+    	        
+    	     
+    	    } 
+    	    catch (FileNotFoundException e) {
+    	        e.printStackTrace();
+    	    }
+    				
+    			
+    		}
+
+    
 
     /**
      * Carrega uma instrução e avança seu apontador interno para o próxima
      * linha do arquivo de entrada. Caso não haja mais linhas no arquivo de
      * entrada o método retorna "Falso", senão retorna "Verdadeiro".
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
+     * @throws IOException 
      */
     public Boolean advance() {
-    	return null;
+    	if(reader.hasNext() == true) {
+            return true;
+        }
+    	else{
+    		return false;
+    	}
     }
 
     /**
@@ -42,8 +74,27 @@ public class Parser {
      * @return a instrução atual para ser analilisada
      */
     public String command() {
-    	return null;
+    	command = reader.next();
+    	for(int i =0; i< command.length();i++){
+    		if (command.charAt(i) == ';'){
+    			command = command.substring(0, i);
+    		}
+    		if (command.charAt(i) == ' ' && command.length() != (i+1)){
+    			if (command.charAt(i+1) == ' '){
+    				command = command.substring(0,i+1) + command.substring(i+2,command.length()-1); 
+    			}
+    		}
+    	
+    		
+    	}
+    	if (command == ""){
+    		this.advance();
+    		this.command();
+    	}
+    	
+    	return command;
     }
+    
 
     /**
      * Retorna o tipo da instrução passada no argumento:
@@ -54,7 +105,22 @@ public class Parser {
      * @return o tipo da instrução.
      */
     public CommandType commandType(String command) {
-    	return null;
+    	
+    	if(command.charAt(command.length()-1) == ':'){
+    		return CommandType.L_COMMAND;
+    	}
+    	else if (command.length() > 4){
+    		if (command.charAt(0) == 'l'){
+        		return CommandType.A_COMMAND;
+    		}
+    		else{
+        		return CommandType.C_COMMAND;
+        	}
+    	}
+    	else{
+    		return CommandType.C_COMMAND;
+    	}
+    	
     }
 
     /**
@@ -64,7 +130,16 @@ public class Parser {
      * @return somente o símbolo ou o valor número da instrução.
      */
     public String symbol(String command) {
-    	return null;
+    	if (commandType(command) == CommandType.A_COMMAND){
+    		for (int i=0; i<command.length(); i++){
+    			if (command.charAt(i) == ','){
+    				command = command.substring(6, i);
+    			
+    			}
+    		}	
+    	}
+    		
+    	return command;
     }
 
     /**
@@ -74,7 +149,10 @@ public class Parser {
      * @return o símbolo da instrução (sem os dois pontos).
      */
     public String label(String command) {
-    	return null;
+    	if (commandType(command) == CommandType.L_COMMAND){
+    		command = command.substring(0,command.length()-1);
+    	}
+    	return command;
     }
 
     /**
@@ -84,7 +162,11 @@ public class Parser {
      * @return um vetor de string contento os tokens da instrução (as partes do comando).
      */
     public String[] instruction(String command) {
-    	return null;
+    	command = command.replaceAll(",", " ");
+    	String[] commands = command.split(" ");
+    
+    	return commands;
+    	
     }
 
 }
