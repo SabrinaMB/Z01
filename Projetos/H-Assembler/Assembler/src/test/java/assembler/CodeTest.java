@@ -134,6 +134,7 @@ public class CodeTest  {
 			
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         	assertTrue("movw %A %D",Code.comp(new String[] {"movw","%A","%D"}).equals("10110000"));
 			assertTrue("movw %A %D",Code.comp(new String[] {"movw","%S","%A"}).equals("00001100"));
 			assertTrue("movw %S %A",Code.comp(new String[] {"movw","%S","%A"}).equals("00001100"));
@@ -177,6 +178,8 @@ public class CodeTest  {
 =======
 
 >>>>>>> upstream/master
+=======
+>>>>>>> d486c5429980e44a09edd7e5d17ef09dc6af7e25
 =======
 >>>>>>> d486c5429980e44a09edd7e5d17ef09dc6af7e25
         	assertTrue("movw %A %D",Code.comp(new String[] {"movw","%A","%D"}).equals("00110000"));
