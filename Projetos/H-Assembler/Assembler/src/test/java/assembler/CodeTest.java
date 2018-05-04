@@ -8,10 +8,6 @@
 package assembler;
 
 import org.junit.Test;
-<<<<<<< HEAD
-import org.junit.Assert;
-=======
->>>>>>> upstream/master
 import static org.junit.Assert.assertTrue;
 
 import assembler.Code;
@@ -35,10 +31,6 @@ public class CodeTest  {
     		org.junit.Assume.assumeNotNull( Code.toBinary("0") );		// ignora test
         } catch(Exception e) { 
         	org.junit.Assume.assumeNoException(e);
-<<<<<<< HEAD
-        	org.junit.Assert.fail();
-=======
->>>>>>> upstream/master
         }  
     	
         try {
@@ -53,10 +45,6 @@ public class CodeTest  {
                 	
         } catch(Exception e) {
             e.printStackTrace();
-<<<<<<< HEAD
-        	org.junit.Assert.fail();
-=======
->>>>>>> upstream/master
         }
     }
 
@@ -70,10 +58,6 @@ public class CodeTest  {
     		org.junit.Assume.assumeNotNull( Code.dest(new String[] {"nop"}) );		// ignora test
         } catch(Exception e) { 
         	org.junit.Assume.assumeNoException(e);
-<<<<<<< HEAD
-        	org.junit.Assert.fail("exception");
-=======
->>>>>>> upstream/master
         }  
 		try {
 
@@ -149,6 +133,7 @@ public class CodeTest  {
 <<<<<<< HEAD
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
         	assertTrue("movw %A %D",Code.comp(new String[] {"movw","%A","%D"}).equals("10110000"));
 			assertTrue("movw %A %D",Code.comp(new String[] {"movw","%S","%A"}).equals("00001100"));
 			assertTrue("movw %S %A",Code.comp(new String[] {"movw","%S","%A"}).equals("00001100"));
@@ -192,6 +177,8 @@ public class CodeTest  {
 =======
 
 >>>>>>> upstream/master
+=======
+>>>>>>> d486c5429980e44a09edd7e5d17ef09dc6af7e25
         	assertTrue("movw %A %D",Code.comp(new String[] {"movw","%A","%D"}).equals("00110000"));
 			assertTrue("movw %S %D",Code.comp(new String[] {"movw","%S","%A"}).equals("01001100"));
 			assertTrue("movw %S %A",Code.comp(new String[] {"movw","%S","%A"}).equals("01001100"));
@@ -233,7 +220,6 @@ public class CodeTest  {
         	//assertTrue("jge",Code.comp(new String[] {"jge"}).equals("10001100"));
         	//assertTrue("jl",Code.comp(new String[] {"jl"}).equals("10001100"));
         	//assertTrue("jle",Code.comp(new String[] {"jle"}).equals("10001100"));
->>>>>>> upstream/master
         	
 =======
             assertTrue("subw (%A), $1, %A",Code.comp(new String[] {"subw","(%A)", "$1", "%A"}).equals("10110010"));
