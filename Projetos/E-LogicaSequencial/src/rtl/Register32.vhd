@@ -1,10 +1,19 @@
 -- Elementos de Sistemas
+<<<<<<< HEAD
 -- by Phelipe Muller
 -- Register32.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
+=======
+-- by Luciano Soares
+-- Register32.vhd
+
+Library ieee; 
+use ieee.std_logic_1164.all;
+  
+>>>>>>> upstream/master
 entity Register32 is
 	port(
 		clock:   in STD_LOGIC;
@@ -13,6 +22,7 @@ entity Register32 is
 		output: out STD_LOGIC_VECTOR(31 downto 0)
 	);
 end entity;
+<<<<<<< HEAD
 
 architecture arch of Register32 is
 
@@ -30,3 +40,5 @@ begin
   R2 : Register16 PORT MAP(clock,input(31 downto 16),load,output(31 downto 16));
 
 end architecture;
+=======
+>>>>>>> upstream/master

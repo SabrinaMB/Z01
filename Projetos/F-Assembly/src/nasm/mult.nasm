@@ -5,6 +5,7 @@
 
 ; Multiplica o valor de RAM[1] com RAM[0] salvando em RAM[3]
 
+<<<<<<< HEAD
 leaw $0, %A
 movw (%A), %D
 leaw $1, %A
@@ -22,3 +23,5 @@ movw %D, (%A)
 
 
 
+=======
+>>>>>>> upstream/master

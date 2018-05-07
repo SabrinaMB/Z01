@@ -1,10 +1,19 @@
 -- Elementos de Sistemas
+<<<<<<< HEAD
 -- by Phelipe Muller
 -- Register16.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
+=======
+-- by Luciano Soares
+-- Register16.vhd
+
+Library ieee; 
+use ieee.std_logic_1164.all;
+  
+>>>>>>> upstream/master
 entity Register16 is
 	port(
 		clock:   in STD_LOGIC;
@@ -13,6 +22,7 @@ entity Register16 is
 		output: out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end entity;
+<<<<<<< HEAD
 
 architecture arch of Register16 is
 
@@ -30,3 +40,5 @@ begin
   R2 : Register8 PORT MAP(clock,input(15 downto 8),load,output(15 downto 8));
 
 end architecture;
+=======
+>>>>>>> upstream/master

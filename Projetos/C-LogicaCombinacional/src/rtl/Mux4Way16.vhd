@@ -9,6 +9,7 @@ entity Mux4Way16 is
 			d:   in  STD_LOGIC_VECTOR(15 downto 0);
 			sel: in  STD_LOGIC_VECTOR(1 downto 0);
 			q:   out STD_LOGIC_VECTOR(15 downto 0));
+<<<<<<< HEAD
 end entity;
 
 architecture mux4 of Mux4Way16 is
@@ -20,3 +21,6 @@ begin
 
 
 end mux4;
+=======
+end entity;
+>>>>>>> upstream/master

@@ -1,10 +1,19 @@
 -- Elementos de Sistemas
+<<<<<<< HEAD
 -- by Phelipe Muller
 -- Ram8.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
+=======
+-- by Luciano Soares
+-- Ram8.vhd
+
+Library ieee; 
+use ieee.std_logic_1164.all;
+  
+>>>>>>> upstream/master
 entity Ram8 is
 	port(
 		clock:   in  STD_LOGIC;
@@ -14,6 +23,7 @@ entity Ram8 is
 		output:  out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end entity;
+<<<<<<< HEAD
 
 architecture arch of Ram8 is
 
@@ -83,3 +93,5 @@ begin
 
 
 end architecture;
+=======
+>>>>>>> upstream/master
