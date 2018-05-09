@@ -6,6 +6,7 @@
 package assembler;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class SymbolTable {
 //	Usaremos HashMap pra criar um Dicionário com os Simbolos que precisamos
@@ -40,7 +41,6 @@ public class SymbolTable {
     	Tabela_de_Simbolos.put("SCREEN", 16384);
     	Tabela_de_Simbolos.put("LED", 21184);
     	Tabela_de_Simbolos.put("SW", 21185);
-
     }
 
 
