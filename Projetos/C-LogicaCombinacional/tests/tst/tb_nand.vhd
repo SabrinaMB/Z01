@@ -15,9 +15,7 @@ end entity;
 
 architecture tb of tb_nand is
 
-  component nand_z01 is
   component nand_vhdl is
-
     port(a:in  STD_LOGIC;
          b:in  STD_LOGIC;
          q:out STD_LOGIC
@@ -32,7 +30,6 @@ architecture tb of tb_nand is
 
 begin
 
-  mapping: nand_z01 port map(inA, inB, outQ);
   mapping: nand_vhdl port map(inA, inB, outQ);
 
   main : process
