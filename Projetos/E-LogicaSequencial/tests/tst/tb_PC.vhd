@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- Elementos de Sistemas
 -- developed by Luciano Soares
 -- tb_FlipFlopD.vhd
@@ -169,7 +168,6 @@ begin
 	wait;
   end process;
 end architecture;
-=======
 -- Elementos de Sistemas
 -- developed by Luciano Soares
 -- tb_FlipFlopD.vhd
@@ -255,4 +253,3 @@ begin
 	wait;
   end process;
 end architecture;
->>>>>>> upstream/master
