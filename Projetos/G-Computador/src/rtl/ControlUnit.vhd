@@ -13,18 +13,14 @@ entity ControlUnit is
 		instruction                 : in STD_LOGIC_VECTOR(15 downto 0);  -- instrução para executar
 		zr,ng                       : in STD_LOGIC;                      -- valores zr(se zero) e ng(se negativo) da ALU
 		muxALUI_A                   : out STD_LOGIC;                     -- mux que seleciona entre instrução e ALU para reg. A
-<<<<<<< HEAD
 		muxAM_ALU                   : out STD_LOGIC;                     -- mux que  'seleciona entre reg. A e Mem. RAM para ALU
-=======
 		muxAM_ALU                   : out STD_LOGIC;                     -- mux que seleciona entre reg. A e Mem. RAM para ALU
->>>>>>> upstream/master
 		muxSD_ALU                   : out STD_LOGIC;                     -- mux que seleciona entre reg. S e reg. D
 		zx, nx, zy, ny, f, no       : out STD_LOGIC;                     -- sinais de controle da ALU
 		loadA, loadD, loadS, loadM, loadPC : out STD_LOGIC               -- sinais de load do reg. A, reg. D,
                                                                      -- Mem. RAM e Program Counter
     );
 end entity;
-<<<<<<< HEAD
 architecture arch of ControlUnit is
 signal mux: STD_LOGIC; 
 begin
@@ -59,10 +55,8 @@ loadPC <= '0' when mux else
           '1' when instruction(0) and not ng and not zr else
           '0';
 
-=======
 
 architecture arch of ControlUnit is
 begin
 
->>>>>>> upstream/master
 end architecture;

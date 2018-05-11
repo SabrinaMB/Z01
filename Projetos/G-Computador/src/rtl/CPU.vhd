@@ -105,7 +105,6 @@ architecture arch of CPU is
 
 begin
 
-<<<<<<< HEAD
   muxALUI_port: Mux16 PORT MAP (s_ALUout,instruction,s_muxALUI_A,s_muxALUI_Aout);
   muxAM_port: Mux16 PORT MAP (s_regAout, inM, s_muxAM_ALU, s_muxAM_ALUout);
   muxSD_port: Mux16 PORT MAP (s_regSout, s_regDout, s_muxSD_ALU, s_muxSDout);
@@ -120,6 +119,4 @@ begin
   addressM <= s_regAout(14 downto 0);
   pcout <= s_pcout(14 downto 0);
 
-=======
->>>>>>> upstream/master
 end architecture;
