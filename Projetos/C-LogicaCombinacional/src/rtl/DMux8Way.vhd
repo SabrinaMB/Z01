@@ -13,7 +13,7 @@ entity DMux8Way is
 			q5:  out STD_LOGIC;
 			q6:  out STD_LOGIC;
 			q7:  out STD_LOGIC);
-<<<<<<< HEAD
+
 end entity;
 
 architecture this_DMux8 of DMux8Way is
@@ -28,6 +28,6 @@ begin
    q7 <= a when(sel = "111") else '0';
 
 end this_DMux8;
-=======
+
 end entity;
->>>>>>> upstream/master
+
