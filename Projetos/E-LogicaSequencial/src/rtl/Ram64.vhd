@@ -1,19 +1,17 @@
 -- Elementos de Sistemas
-<<<<<<< HEAD
 -- by Phelipe Muller
 -- Ram64.vhd
 
 Library ieee;
 use ieee.std_logic_1164.all;
 
-=======
 -- by Luciano Soares
 -- Ram64.vhd
 
 Library ieee; 
 use ieee.std_logic_1164.all;
   
->>>>>>> upstream/master
+
 entity Ram64 is
 	port(
 		clock:   in  STD_LOGIC;
@@ -23,7 +21,7 @@ entity Ram64 is
 		output:  out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end entity;
-<<<<<<< HEAD
+
 
 architecture arch of Ram64 is
 
@@ -100,5 +98,4 @@ begin
 
 
 end architecture;
-=======
->>>>>>> upstream/master
+

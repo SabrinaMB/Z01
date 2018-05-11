@@ -18,7 +18,6 @@ end entity;
 
 architecture rtl of Add16 is
 
-<<<<<<< HEAD
 	component FullAdder is
 		port(
 			a,b,c:        in STD_LOGIC;   -- entradas
@@ -45,7 +44,7 @@ begin
 	f13: FullAdder PORT MAP(a(13),b(13),tmp(12),q(13),tmp(13));
 	f14: FullAdder PORT MAP(a(14),b(14),tmp(13),q(14),tmp(14));
 	f15: FullAdder PORT MAP(a(15),b(15),tmp(14),q(15),tmp(15));
-=======
+
 component FullAdder is
 	port(
 		a,b,c:      in STD_LOGIC;   -- entradas
@@ -54,6 +53,5 @@ component FullAdder is
 end component;
 
 begin
->>>>>>> upstream/master
 
 end architecture;

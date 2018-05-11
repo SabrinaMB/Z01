@@ -7,7 +7,7 @@ entity DMux2Way is
 			sel: in  STD_LOGIC;
 			q0:  out STD_LOGIC;
 			q1:  out STD_LOGIC);
-<<<<<<< HEAD
+
 end entity;
 
 architecture this_DMux of DMux2Way is
@@ -18,6 +18,5 @@ begin
 
 end this_DMux;
 
-=======
 end entity
->>>>>>> upstream/master
+

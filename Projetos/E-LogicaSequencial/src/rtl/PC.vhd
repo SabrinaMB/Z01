@@ -26,7 +26,6 @@ end entity;
 
 architecture arch of PC is
 
-<<<<<<< HEAD
 component Register8 is
   port(
   	clock:   in STD_LOGIC;
@@ -71,9 +70,8 @@ begin
 end process;
 	output <= output_temp;
 end architecture;
-=======
 begin
 
 
 end architecture;
->>>>>>> upstream/master
+

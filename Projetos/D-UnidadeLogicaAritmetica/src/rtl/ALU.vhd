@@ -94,7 +94,7 @@ architecture  rtl OF alu IS
 
 begin
 
-<<<<<<< HEAD
+
 	zerax: zerador16 PORT MAP(zx,x,zxout);
 	invx: inversor16 PORT MAP(nx,zxout,nxout);
 	zeray: zerador16 PORT MAP(zy,y,zyout);
@@ -108,6 +108,5 @@ begin
 
 
 end architecture;
-=======
+
 end architecture;
->>>>>>> upstream/master

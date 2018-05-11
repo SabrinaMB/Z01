@@ -1,9 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-<<<<<<< HEAD
 use ieee.numeric_std.all; 
-=======
->>>>>>> upstream/master
+
 
 entity BarrelShifter8 is
 	port ( 
@@ -11,7 +9,7 @@ entity BarrelShifter8 is
 			dir:  in  std_logic;                       -- 0=>left 1=>right
 			size: in  STD_LOGIC_VECTOR(2 downto 0);    -- shift amount
 			q:    out STD_LOGIC_VECTOR(7 downto 0));  -- output vector (shifted)
-<<<<<<< HEAD
+
 end entity;
 
 architecture barrel8 of BarrelShifter8 is
@@ -31,6 +29,6 @@ begin
 
 
 end barrel8;
-=======
+
 end entity;
->>>>>>> upstream/master
+
