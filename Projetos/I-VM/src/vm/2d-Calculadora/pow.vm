@@ -1,0 +1,38 @@
+function pow 4
+	push constant 1
+	pop local 0
+	push argument 1 
+	pop local 1  
+
+	push argument 1 
+	pop local 2
+
+	push argument 0
+	push constant 1
+	sub
+	pop local 3
+
+
+label loop       			// se o argumento foi maior que 0
+				  			// multiplicar a constante por ela mesma, e dec 1 do argumento   
+	push constant 0
+	push local 3     //o elevado
+	eq
+	if-goto end             // se o local 1 for 0, vai pro fim 
+	push local 2         //multiplica o argumento por ele mesmo
+	push local 1
+	call mult 2
+	pop local 2
+	push local 3
+	push constant 1
+	sub   					//subtrai 1 do argumento
+	pop local 3
+	goto loop
+
+label end
+	push local 2
+	return
+
+
+
+
