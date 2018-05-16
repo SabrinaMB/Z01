@@ -7,8 +7,13 @@
 // File         : add1.vm
 //
 // Descritivo   : 
-//  Adiciona 5 + 9 e salva o resultado  no temp 0
+//  Adiciona 123 + 23 e salva o resultado  no temp 0
 //
 // ----------------------------------
 
 function Main.main 0
+
+push constant 123
+push constant 23
+add
+pop temp 0
