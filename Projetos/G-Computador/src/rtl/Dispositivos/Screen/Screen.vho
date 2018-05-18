@@ -98,10 +98,20 @@ LCD_INIT_OK  <= '1';
 =======
 process
 begin
-LCD_INIT_OK  <= '0';
-wait until clk_slow = '0';
-LCD_INIT_OK  <= '1';
-wait ;
+  LCD_INIT_OK  <= '0';
+  wait until clk_slow = '0';
+  LCD_INIT_OK  <= '1';
+  wait ;
+end process;
+
+
+process(CLK_FAST)
+begin
+  if(rising_edge(CLK_FAST)) then
+     if (LOAD = '1') then
+        LCD_D <= input;
+      end IF;
+  end if;
 end process;
 >>>>>>> upstream/master
 
