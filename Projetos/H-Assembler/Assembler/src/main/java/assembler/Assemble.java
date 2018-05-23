@@ -12,6 +12,8 @@ package assembler;
 import java.io.*;
 import java.util.*;
 
+import assembler.Parser.CommandType;
+
 /**
  * Faz a geração do código gerenciando os demais módulos
  */
@@ -45,6 +47,18 @@ public class Assemble {
      * Dependencia : Parser, SymbolTable
      */
     public void fillSymbolTable() throws FileNotFoundException, IOException {
+        Parser parser = new Parser(inputFile);  // abre o arquivo e aponta para o começo
+        while(parser.advance()){
+            int i= 0;
+            if (parser.commandType(parser.command()) == Parser.CommandType.L_COMMAND){
+                if (table.contains(parser.label(parser.command()))==false){
+                    table.addEntry(parser.label(parser.command()), i);
+                    }
+                }
+            else{i++;
+            
+            }
+        }
     }
 
     /**
@@ -56,7 +70,17 @@ public class Assemble {
      */
     public void generateMachineCode() throws FileNotFoundException, IOException{
         Parser parser = new Parser(inputFile);  // abre o arquivo e aponta para o começo
-
+        while(parser.advance()){
+            int i= 0;
+            if (parser.commandType(parser.command()) == Parser.CommandType.C_COMMAND){
+                
+            }
+            if (parser.commandType(parser.command()) == Parser.CommandType.A_COMMAND){
+                
+            }
+            i++;
+        }
+            
     }
 
     /**
@@ -74,7 +98,7 @@ public class Assemble {
     public void delete() {
         try{
             if(hackFile!=null) {
-                hackFile.delete();
+               hackFile.delete();
             }
         } catch(Exception e) {
             e.printStackTrace();
