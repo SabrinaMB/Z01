@@ -9,7 +9,6 @@ entity Mux4Way is
 			d:   in  STD_LOGIC;
 			sel: in  STD_LOGIC_VECTOR(1 downto 0);
 			q:   out STD_LOGIC);
-
 end entity;
 
 architecture mux4 of Mux4Way is
@@ -21,6 +20,3 @@ begin
 
 
 end mux4;
-
-end entity;
-

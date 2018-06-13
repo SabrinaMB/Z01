@@ -7,7 +7,6 @@ entity BarrelShifter16 is
 			dir:  in  std_logic;                       -- 0=>left 1=>right
 			size: in  STD_LOGIC_VECTOR(2 downto 0);    -- shift amount
 			q:    out STD_LOGIC_VECTOR(15 downto 0));  -- output vector (shifted)
-
 end entity;
 
 architecture barrel16 of BarrelShifter16 is
@@ -31,6 +30,3 @@ begin
 
 
 end barrel16;
-
-end entity;
-

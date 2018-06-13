@@ -13,7 +13,6 @@ entity Mux8Way is
 			h:   in  STD_LOGIC;
 			sel: in  STD_LOGIC_VECTOR(2 downto 0);
 			q:   out STD_LOGIC);
-
 end entity;
 
 
@@ -30,5 +29,3 @@ begin
 
 
 end this_mux8;
-end entity;
-

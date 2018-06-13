@@ -12,7 +12,7 @@ entity Mux8Way16 is
 			g:   in  STD_LOGIC_VECTOR(15 downto 0);
 			h:   in  STD_LOGIC_VECTOR(15 downto 0);
 			sel: in  STD_LOGIC_VECTOR(2 downto 0);
-
+			q:   out STD_LOGIC_VECTOR(15 downto 0));
 end entity;
 
 architecture this_mux16 of Mux8Way16 is
@@ -28,4 +28,3 @@ begin
 
 
 end this_mux16;
-end entity;

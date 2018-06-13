@@ -9,7 +9,6 @@ entity DMux4Way is
 			q1:  out STD_LOGIC;
 			q2:  out STD_LOGIC;
 			q3:  out STD_LOGIC);
-
 end entity;
 
 architecture this_DMux of DMux4Way is
@@ -20,6 +19,3 @@ begin
    q0 <= a when(sel = "00") else '0';
 
 end this_DMux;
-
-end entity;
-

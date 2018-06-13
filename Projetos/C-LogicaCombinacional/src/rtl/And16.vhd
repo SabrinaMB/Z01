@@ -12,4 +12,3 @@ architecture rtl of And16 is
 begin 
 	q <= (a and b);
 end rtl;
-

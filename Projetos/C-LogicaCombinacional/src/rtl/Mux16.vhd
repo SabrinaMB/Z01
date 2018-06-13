@@ -7,7 +7,6 @@ entity Mux16 is
 			b:   in  STD_LOGIC_VECTOR(15 downto 0);
 			sel: in  STD_LOGIC;
 			q:   out STD_LOGIC_VECTOR(15 downto 0));
-
 end entity;
 
 architecture mux16 of Mux16 is
@@ -17,6 +16,3 @@ begin
 
 
 end mux16;
-
-end entity;
-
