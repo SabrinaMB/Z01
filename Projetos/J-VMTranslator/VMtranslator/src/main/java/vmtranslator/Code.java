@@ -21,6 +21,7 @@ public class Code {
     PrintWriter outputFile = null;  // arquivo .nasm de saída
     String filename = null;         // arquivo .vm de entrada
     int lineCode = 0;               // Linha do codigo vm que gerou as instrucoes
+    int count = 0; 
 
     /**
      * Abre o arquivo de saida e prepara para escrever
@@ -94,25 +95,138 @@ public class Code {
 
         if(command == Parser.CommandType.C_POP) {
             commands.add(String.format("; %d - POP %s %d", lineCode++ ,segment, index));
+            
 
             if (segment.equals("constant")) {
                 Error.error("Não faz sentido POP com constant");
             } else if (segment.equals("local")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $LCL, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("argument")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $ARG, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("this")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $THIS, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("that")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $THAT, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("static")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $Static, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("temp")) {
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("decw %A"));
+            	commands.add(String.format("movw (%A), %D"));
+            	commands.add(String.format("leaw $Temp, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("addw %A, %S, %A"));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %D, (%A)"));
 
             } else if (segment.equals("pointer")) {
                 if(index==0) {
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("decw %A"));
+                	commands.add(String.format("movw (%A), %D"));
+                	commands.add(String.format("leaw $THIS, %A"));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $%d, %A", index));
+                	commands.add(String.format("addw %A, %S, %A"));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("movw %S, (%A)"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw %D, (%A)"));
 
                 } else {
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("decw %A"));
+                	commands.add(String.format("movw (%A), %D"));
+                	commands.add(String.format("leaw $THAT, %A"));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $%d, %A", index));
+                	commands.add(String.format("addw %A, %S, %A"));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("movw %S, (%A)"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw %D, (%A)"));
 
                 }
             }
@@ -120,23 +234,112 @@ public class Code {
             commands.add(String.format("; %d - PUSH %s %d", lineCode++ ,segment, index));
 
             if (segment.equals("constant")) {
+            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("local")) {
+            	commands.add(String.format("leaw $LCL, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("argument")) {
+            	commands.add(String.format("leaw $ARG, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("this")) {
+            	commands.add(String.format("leaw $THIS, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("that")) {
+            	commands.add(String.format("leaw $THAT, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("static")) {
+            	commands.add(String.format("leaw $Static, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("temp")) {
+            	commands.add(String.format("leaw $Temp, %A"));
+            	commands.add(String.format("addw $%d, %A, %A", index));
+            	commands.add(String.format("movw (%A), %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw (%A), %A"));
+            	commands.add(String.format("movw %S, (%A)"));
+            	commands.add(String.format("incw %A"));
+            	commands.add(String.format("movw %A, %S"));
+            	commands.add(String.format("leaw $SP, %A"));
+            	commands.add(String.format("movw %S, (%A)"));
 
             } else if (segment.equals("pointer")) {
                 if(index==0) {
+                	commands.add(String.format("leaw $THAT, %A"));
+                	commands.add(String.format("addw $%d, %A, %A", index));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("movw %S, (%A)"));
+                	commands.add(String.format("incw %A"));
+                	commands.add(String.format("movw %A, %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw %S, (%A)"));
 
                 } else {
+                	commands.add(String.format("leaw $THAT, %A"));
+                	commands.add(String.format("addw $%d, %A, %A", index));
+                	commands.add(String.format("movw (%A), %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw (%A), %A"));
+                	commands.add(String.format("movw %S, (%A)"));
+                	commands.add(String.format("incw %A"));
+                	commands.add(String.format("movw %A, %S"));
+                	commands.add(String.format("leaw $SP, %A"));
+                	commands.add(String.format("movw %S, (%A)"));
 
                 }
             }
@@ -185,9 +388,16 @@ public class Code {
      * @param  label define nome do label (marcador) a ser escrito.
      */
     public void writeLabel(String label) {
-
-        List<String> commands = new ArrayList<String>();
+    	count += 1;
+    	String[] splited = new String[2];
+    	splited[0] = new String();
+    	splited[1] = new String();
+    	splited = label.split(" ");//acho que tá errado
+    	String counts = Integer.toString(count);
+    	
+        List<String> commands = new ArrayList<String>();   
         commands.add( "; Label (marcador)" );
+        commands.add( String.format("%s%s:", splited[1],counts));
 
     }
 
@@ -200,6 +410,8 @@ public class Code {
 
         List<String> commands = new ArrayList<String>();
         commands.add(String.format("; %d - Goto Incondicional", lineCode++));
+        commands.add( String.format("$%s, %A", label));//tá errado
+        commands.add( String.format("jmp"));
 
     }
 
@@ -212,6 +424,9 @@ public class Code {
 
         List<String> commands = new ArrayList<String>();
         commands.add(String.format("; %d - Goto Condicional", lineCode++));
+        if (label == "eq"){
+        	commands.add( String.format("je"));
+        }
 
      }
 

@@ -77,7 +77,6 @@ public class Parser {
     		
     	}
     	if (currentCommand == ""){
-    		this.advance();
     		this.command();
     	}
     	
