@@ -120,8 +120,8 @@ BEGIN
 	PLL_inst : PLL PORT map (
     refclk   => CLOCK_50,
     rst      => RESET,
-    outclk_0 => CLK_FAST,
-    outclk_1 => CLK_SLOW,
+    outclk_0 => CLK_SLOW,
+    outclk_1 => CLK_FAST,
     locked   => PLL_LOCKED
      );
 
@@ -156,7 +156,7 @@ BEGIN
 	LCD_RESET_N => LCD_RESET_N,
 	LCD_RS => LCD_RS,
 	LCD_WR_N => LCD_WR_N,
-	LCD_ON => open,
+	LCD_ON => LCD_ON,
 	LCD_INIT_OK => LCD_INIT_OK,
 	SW => SW,
 	LED => LEDR

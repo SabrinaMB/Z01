@@ -39,22 +39,22 @@ ny <= instruction(9);
 f <= instruction(8);
 no <= instruction(7);
 
-loadA <= '1' when mux else
+loadA <= '1' when mux = '1' else
           instruction(6);
 
-loadS <= '0' when mux else
+loadS <= '0' when mux = '1' else
          instruction(5);
 
-loadD <= '0' when mux else
+loadD <= '0' when mux = '1' else
          instruction(4);
 
-loadM <= '0' when mux else
+loadM <= '0' when mux = '1' else
           instruction(3);
 
-loadPC <= '0' when mux else
-          '1' when instruction(2) and ng else
-          '1' when instruction(1) and zr else
-          '1' when instruction(0) and not ng and not zr else
+loadPC <= '0' when mux = '1' else
+          '1' when (instruction(2) = '1') and (ng = '1') else
+          '1' when (instruction(1) = '1') and (zr = '1') else
+          '1' when (instruction(0) = '1') and (ng = '0') and (zr = '0') else
           '0';
 
 

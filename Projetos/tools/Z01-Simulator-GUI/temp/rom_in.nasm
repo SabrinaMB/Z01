@@ -1,49 +1,46 @@
-leaw $1, %A   ; inicio verifica se R0 = 0 ou 1 coloca 1 em D e pula para o fim
+leaw $1, %A
 movw %A, %D
 leaw $0, %A
 movw (%A), %S
-decw %S
-leaw $fim, %A
-jle %S
+leaw $41, %A
+je %S
 nop
 leaw $0, %A
-movw (%A), %S   ; S = conteúdo R0
-decw %S
-decw %S         ; S = R0 - 2
-leaw $3, %A
-movw %S, (%A)    ;coloca R0 - 2 em R3
-leaw $fim, %A
-jle %S
-nop
-leaw $0, %A
-movw (%A), %D   ; D = conteúdo de R0
-leaw $3, %A
+movw (%A), %D
+leaw $2, %A
+movw %D, (%A)
 movw (%A), %S
-mult:
-movw $0, %A
+decw %S
+leaw $3, %A
+movw %S, (%A)
+leaw $41, %A
+jle %S
+nop
+leaw $2, %A
+movw (%A), %S
+leaw $0, %A
 addw (%A), %D, %D
 decw %S
-leaw $mult, %A
+leaw $2, %A
+movw %S, (%A)
+leaw $2, %A
+notw %A
+incw %A
+addw %A, %S, %S
+leaw $18, %A
 jg %S
 nop
+leaw $0, %A
+movw %D, (%A)
 leaw $3, %A
 movw (%A), %S
 decw %S
 movw %S, (%A)
-leaw $0, %A
-movw %D, (%A)
-leaw $mult, %A
-jg %S
+leaw $18, %A
+jge %S
 nop
-fim:
 leaw $1, %A
 movw %D, (%A)
-
-
-
-
-
-
 
 
 
