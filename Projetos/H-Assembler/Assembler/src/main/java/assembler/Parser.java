@@ -79,16 +79,17 @@ public class Parser {
     		if (command.charAt(i) == ';'){
     			command = command.substring(0, i);
     		}
-    		if (command.charAt(i) == ' ' && command.length() != (i+1)){
-    			if (command.charAt(i+1) == ' '){
-    				command = command.substring(0,i+1) + command.substring(i+2,command.length()-1); 
-    			}
+    		if(command.charAt(i) != (command.length()-1)){
+	    		if (command.charAt(i) == ' ' && command.length() != (i+1)){
+	    			if (command.charAt(i+1) == ' '){
+	    				command = command.substring(0,i+1) + command.substring(i+2,command.length()-1); 
+	    			}
+	    		}
     		}
     	
     		
     	}
     	if (command == ""){
-    		this.advance();
     		this.command();
     	}
     	
