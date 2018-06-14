@@ -120,18 +120,18 @@ BEGIN
 	PLL_inst : PLL PORT map (
     refclk   => CLOCK_50,
     rst      => RESET,
-    outclk_0 => CLK_SLOW,
-    outclk_1 => CLK_FAST,
+    outclk_0 => CLK_FAST,
+    outclk_1 => CLK_SLOW ,
     locked   => PLL_LOCKED
      );
 
  	ROM: ROM32K PORT MAP(
- 	address => ADDRESS, 
+ 	address => PC, 
  	clock => CLK_SLOW, 
  	q => INSTRUCTION
  	);
 
-	CPU_inst: CPU PORT MAP(
+	MAIN_CPU: CPU PORT MAP(
 	clock => CLK_SLOW,
 	inM => OUTPUT_RAM,
 	instruction => INSTRUCTION,
