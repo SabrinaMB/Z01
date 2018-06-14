@@ -30,9 +30,6 @@ begin
 	full: HalfAdder PORT MAP (a, b, tmp, t);
 	full2: HalfAdder PORT MAP (c, tmp, soma, q);
 	vaium <= q or t;
-architecture rtl of FullAdder is
-
-begin
 
 
 end architecture;

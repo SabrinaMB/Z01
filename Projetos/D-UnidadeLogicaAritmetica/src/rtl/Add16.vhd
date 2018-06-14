@@ -45,13 +45,5 @@ begin
 	f14: FullAdder PORT MAP(a(14),b(14),tmp(13),q(14),tmp(14));
 	f15: FullAdder PORT MAP(a(15),b(15),tmp(14),q(15),tmp(15));
 
-component FullAdder is
-	port(
-		a,b,c:      in STD_LOGIC;   -- entradas
-		soma,vaium: out STD_LOGIC   -- sum e carry
-	);
-end component;
-
-begin
 
 end architecture;

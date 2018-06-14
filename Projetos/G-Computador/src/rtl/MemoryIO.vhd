@@ -78,64 +78,90 @@ ARCHITECTURE logic OF MemoryIO IS
       );
   end component;
 
+-- Mux16
+  component Mux16 is
+    port(
+      a:   in STD_LOGIC_VECTOR(15 downto 0);
+      b:   in STD_LOGIC_VECTOR(15 downto 0);
+      sel:    in std_logic;
+      q: out STD_LOGIC_VECTOR(15 downto 0)
+      );
+  end component;
 
-signal LOAD_RAM: STD_LOGIC;
-signal LOAD_SCREEN: STD_LOGIC;
-signal LOAD_LED: STD_LOGIC;
-signal LOAD_SW: STD_LOGIC;
+-- DMux4Way
+  component DMux4Way is
+    port(
+      a:   in std_logic;
+      sel:    in STD_LOGIC_VECTOR(15 downto 0);
+      q0: out std_logic;
+      q1: out std_logic;
+      q2: out std_logic
+      );
+  end component;
 
-signal DATA: STD_LOGIC_VECTOR(14 downto 0);
-signal INSTRUCTION: STD_LOGIC_VECTOR(14 downto 0);
-signal IN_REG: STD_LOGIC_VECTOR(14 downto 0);
+
+
+--  fazer os signais 
+signal address_screen: std_logic_vector(13 downto 0);
+signal wren_ram: std_logic;
+signal out_ram: std_logic_vector(15 downto 0);
+signal load_reg: std_logic;
+signal load_screen: std_logic;
+signal sel_mux: std_logic;
+signal sel_dmux: std_logic_vector(1 downto 0);
+signal sw16 : std_logic_vector(15 downto 0);
+signal led16 : std_logic_vector(15 downto 0);
 
 BEGIN
-  
---  LOAD_RAM <= '1' when DMUX_L = "00";
---  LOAD_REG <= '1' when DMUX_L = "01";
---  LOAD_SCREEN <= '1' when DMUX_L = "10";
 
-  LOAD_RAM <= LOAD when ADRESS < "0100000000000000" else '0';
-  LOAD_SCREEN <= LOAD when ADRESS < "0101001011000000" and  ADRESS > "0011111111111111" else '0';
-  LOAD_LED  <= LOAD when ADRESS = "0101001011000000" else '0';
-  LOAD_SW  <= LOAD when ADRESS = "0101001011000001" else '0';
-
-
-  RAM: RAM16K PORT MAP(
-  address => ADDRESS, 
-  clock => CLK_FAST, 
+RAM: RAM16K PORT MAP(
+  address => ADDRESS(13 downto 0),
+  clock => CLK_FAST,
   data => INPUT,
-  wren => LOAD_RAM,
-  q => INSTRUCTION
+  wren => wren_ram,
+  q => out_ram
   );
 
-  REG: Register16 PORT MAP (
-    clock => CLK_SLOW,
-    input(9 downto 0) => INPUT(9 downto 0),
-    input(15 downto 0) => ("000000"),
-    load => LOAD_LED,
-    output => LED
-    );
+Register_inst: Register16 PORT MAP(
+  clock => CLK_SLOW,
+  input => INPUT,
+  load => load_reg,
+  output => led16
+  );
 
-  SCREEN_log: Screen PORT MAP(
-    INPUT => INPUT ,
-    LOAD => LOAD_SCREEN,
-    ADDRESS => ADDRESS(13 downto 0),
-    CLK_FAST =>  CLK_FAST,
-    CLK_SLOW => CLK_SLOW,
-    RST => RST,
-    LCD_INIT_OK => LCD_INIT_OK,
-    LCD_CS_N => LCD_CS_N,
-    LCD_D => LCD_D,
-    LCD_RESET_N => LCD_RESET_N,
-    LCD_RS => LCD_RS,
-    LCD_WR_N => LCD_WR_N
-    );
+Screen_inst: Screen PORT MAP(
+  INPUT => INPUT,
+  LOAD => load_screen,
+  ADDRESS => ADDRESS(13 downto 0),
+  CLK_FAST => CLK_FAST,
+  CLK_SLOW => CLK_SLOW,
+  RST => RST,
+  LCD_INIT_OK => LCD_INIT_OK,
+  LCD_CS_N => LCD_CS_N,
+  LCD_D => LCD_D,
+  LCD_RD_N => LCD_RD_N,
+  LCD_RESET_N => LCD_RESET_N,
+  LCD_RS => LCD_RS,
+  LCD_WR_N => LCD_WR_N
+  );
+
+sel_dmux <= "00" when (ADDRESS <= "011111111111111") else --16383
+            "01" when (ADDRESS =  "101001011000000") else -- 21184 
+            "10" when (ADDRESS <= "101001010111111") else -- 21183;
+            "11" ;
+
+wren_ram <= '1' when (ADDRESS <= "011111111111111") else --16383
+            '0';
+load_reg <= '1' when (ADDRESS <= "101001011000000") else --16383
+            '0';
+load_screen <= '1' when (ADDRESS > "011111111111111") and (ADDRESS <= "101001010111111") else --16383
+            '0';
+
+OUTPUT <= out_ram when (ADDRESS <= "011111111111111") else 
+          sw16;
 
 
-  OUTPUT <= INSTRUCTION when LOAD_RAM;
-  OUTPUT<= SW when LOAD_SW;
-
-
-
+sw16 <= "000000" & sw;
+LED <= led16(9 downto 0);
 
 END logic;

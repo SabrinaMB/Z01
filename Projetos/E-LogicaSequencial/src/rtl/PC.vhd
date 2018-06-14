@@ -69,9 +69,6 @@ begin
     end if;
 end process;
 	output <= output_temp;
-end architecture;
-begin
-
 
 end architecture;
 

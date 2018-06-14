@@ -106,7 +106,4 @@ begin
 	comp: comparador16 PORT MAP(precomp,zr,ng);
 	saida <= precomp;
 
-
-end architecture;
-
 end architecture;

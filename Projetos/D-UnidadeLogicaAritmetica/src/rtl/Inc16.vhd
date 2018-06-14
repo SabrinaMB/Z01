@@ -47,7 +47,4 @@ begin
 
 
 
-begin
-
-
-end architecture;
+end rtl;
