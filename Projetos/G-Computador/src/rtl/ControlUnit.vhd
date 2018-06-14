@@ -28,9 +28,8 @@ signal mux: STD_LOGIC;
 begin
 
 muxALUI_A <= not instruction(15);
-mux <= not instruction(15);
 muxAM_ALU <= instruction(14);
-muxSD_ALU <= instruction(13);
+muxSD_ALU <= not instruction(13);
 
 zx <= instruction(12);
 nx <= instruction(11);
@@ -39,23 +38,11 @@ ny <= instruction(9);
 f <= instruction(8);
 no <= instruction(7);
 
-loadA <= '1' when mux = '1' else
-          instruction(6);
-
-loadS <= '0' when mux = '1' else
-         instruction(5);
-
-loadD <= '0' when mux = '1' else
-         instruction(4);
-
-loadM <= '0' when mux = '1' else
-          instruction(3);
-
-loadPC <= '0' when mux = '1' else
-          '1' when (instruction(2) = '1') and (ng = '1') else
-          '1' when (instruction(1) = '1') and (zr = '1') else
-          '1' when (instruction(0) = '1') and (ng = '0') and (zr = '0') else
-          '0';
+loadA <= instruction(6) or not instruction(15);
+loadS <= instruction(5) and instruction(15);
+loadD <= instruction(4) and instruction(15);
+loadM <= instruction(3) and instruction(15);
+loadPC <= ((instruction(2) and ng) or (instruction(1) and zr) or (instruction(0) and not (zr or ng))) and instruction(15);
 
 
 
