@@ -137,7 +137,7 @@ public class Code {
             return out+"000111";
         }
         
-        return null;
+        return "00000000";
     }
 
     /**
