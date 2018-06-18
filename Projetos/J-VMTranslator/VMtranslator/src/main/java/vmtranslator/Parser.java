@@ -20,19 +20,18 @@ public class Parser {
 
     public String currentCommand = "";  // comando atual
     private BufferedReader fileReader;  // leitor de arquivo
-	int lineNumber = 0;
 
     /** Enumerator para os tipos de comandos de Linguagem de Máquina Virtua a Pilha. */
     public static enum CommandType {
         C_ARITHMETIC,      // comandos aritméticos
         C_PUSH,            // comandos de push
         C_POP,             // comandos de pop
-        C_LABEL,           // label
-        C_GOTO,            // comando goto
-        C_IF,              // comando if-goto
-        C_FUNCTION,        // declaracao de funcao
-        C_RETURN,          // retorno de funcao
-        C_CALL             // chamada de funcao
+        C_LABEL,           //
+        C_GOTO,            //
+        C_IF,              //
+        C_FUNCTION,        //
+        C_RETURN,          //
+        C_CALL             //
     }
 
     /**
@@ -50,31 +49,26 @@ public class Parser {
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
      */
     public Boolean advance() throws IOException {
-    	String currentLine = fileReader.readLine();
-    	lineNumber++;
-    	while (true){
-    		
-	    	if (currentLine == null){
-	            return false;
-	    	}
-	        currentCommand = currentLine.replaceAll(";.*$", "").trim();
-	        if (currentCommand.equals("")){
-	            continue;
-	        }
-	        return true; 
-    	}
+        while(true){
+            String currentLine = fileReader.readLine();
+            if (currentLine == null){
+                return false;  // caso não haja mais comandos
+            }
+            currentCommand = currentLine.replaceAll("//.*$", "").trim();
+            if (currentCommand.equals("")){
+                continue;
+            }
+            return true;   // caso um comando seja encontrado
+        }
     }
 
     /**
      * Retorna o comando "intrução" atual (sem o avanço)
      * @return a instrução atual para ser analilisada
-     * @throws IOException 
      */
     public String command() {
-    	return currentCommand;
-    	
+      return currentCommand;
     }
-    	
 
     /**
      * Retorna o tipo da instrução passada no argumento:
@@ -84,40 +78,25 @@ public class Parser {
      * @return o tipo da instrução.
      */
     public CommandType commandType(String command) {
-    	if(command.charAt(0) == 'p' && command.charAt(1) == 'u'){
-			return CommandType.C_PUSH;
-		}
-	if (command.charAt(0) == 'p' && command.charAt(1) == 'o'){
-			return CommandType.C_POP;
-		}
-	
-	if (command.charAt(0) == 'c' && command.charAt(1) == 'a'){
-		return CommandType.C_CALL;    	}
-	
-	if (command.charAt(0) == 'l' && command.charAt(1) == 'a'){
-		return CommandType.C_LABEL;
-	}
-	
-	if (command.charAt(0) == 'g' && command.charAt(1) == 'o'){
-		return CommandType.C_GOTO;
-	}
-	
-	if (command.charAt(0) == 'i' && command.charAt(1) == 'f'){
-		return CommandType.C_IF;
-	}
-	
-	if (command.charAt(0) == 'f' && command.charAt(1) == 'u'){
-		return CommandType.C_FUNCTION;
-	}
-	
-	if (command.charAt(0) == 'r' && command.charAt(1) == 'e'){
-		return CommandType.C_RETURN;
-	}
-
-	else {
-		return CommandType.C_ARITHMETIC;
-		}
-    	
+        if (command.startsWith("push")) {
+            return CommandType.C_PUSH;  // comandos de PUSH
+        } else if (command.startsWith("pop")) {
+            return CommandType.C_POP;  //  comandos de POP
+        } else if (command.startsWith("label")) {
+            return CommandType.C_LABEL;  //  comandos de label
+        } else if (command.startsWith("goto")) {
+            return CommandType.C_GOTO;  //  comandos de goto
+        } else if (command.startsWith("if-goto")) {
+            return CommandType.C_IF;  //  comandos de if-goto
+        } else if (command.startsWith("function")) {
+            return CommandType.C_FUNCTION;  //  comandos de function
+        } else if (command.startsWith("return")) {
+            return CommandType.C_RETURN;  //  comandos de return
+        } else if (command.startsWith("call")) {
+            return CommandType.C_CALL;  //  comandos de call
+        } else {
+            return CommandType.C_ARITHMETIC;  // C_ARITHMETIC for add, sub, etc...
+        }
     }
 
 
@@ -129,38 +108,12 @@ public class Parser {
      * @return somente o símbolo ou o valor número da instrução.
      */
     public String arg1(String command) {
-    	if (commandType(command) == CommandType.C_RETURN){
-    		return command;
-    		
-    	}
-    	else{
-    		if(commandType(command) == CommandType.C_ARITHMETIC){
-    			return command;
-    		}
-    		else if((commandType(command) == CommandType.C_PUSH) || (commandType(command) == CommandType.C_CALL)){
-    			int i = 5;
-    			while(command.charAt(i) != ' '){
-    				i += 1;
-    			}
-    			
-    			return command.substring(5,i);
-    		
-    		}
-    		else if(commandType(command) == CommandType.C_POP){
-    			int i = 4;
-    			while(command.charAt(i) != ' '){
-    				i += 1;
-    			}
-    			return command.substring(4,i);  			
-    		}
-    		else{
-    			int i = 9;
-    			while(command.charAt(i) != ' '){
-    				i += 1;
-    			}
-    			return command.substring(9,i);  			
-    		}
-    	}
+        if(commandType(command) == Parser.CommandType.C_ARITHMETIC) {
+            return(command);
+        } else {
+            String[] array = command.split(" ");
+            return array[1].replaceAll("\\s+","");
+        }
     }
 
     /**
@@ -170,28 +123,8 @@ public class Parser {
      * @return o símbolo da instrução (sem os dois pontos).
      */
     public Integer arg2(String command) {
-    	if ((commandType(command) == CommandType.C_PUSH) || (commandType(command) == CommandType.C_CALL)){
-    		int i = 5;
-			while(command.charAt(i) != ' '){
-				i += 1;
-			}
-			return Integer.parseInt(command.substring(i+1,command.length()));
-    	}
-    	
-    	if (commandType(command) == CommandType.C_POP){
-    		int i = 4;
-			while(command.charAt(i) != ' '){
-				i += 1;
-			}
-			return Integer.parseInt(command.substring(i+1,command.length()));
-    	}
-    	else{
-    		int i = 9;
-			while(command.charAt(i) != ' '){
-				i += 1;
-			}
-			return Integer.parseInt(command.substring(i+1,command.length()));
-    	}
+        String[] array = command.split(" ");
+        return Integer.valueOf(array[2]);
     }
 
     // fecha o arquivo de leitura

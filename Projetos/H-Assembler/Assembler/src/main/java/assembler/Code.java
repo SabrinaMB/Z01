@@ -73,6 +73,7 @@ public class Code {
         }
         
         // Movw
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
         if (mnemnonic[0].equals("movw")){
             String out = String.valueOf(binAB);
             if (mnemnonic[2].contains("%A")) return out+"001100";

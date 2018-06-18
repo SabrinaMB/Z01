@@ -1,15 +1,13 @@
 /**
  * Curso: Elementos de Sistemas
  * Arquivo: Parser.java
+ * Created by Luciano Soares <lpsoares@insper.edu.br> 
+ * Date: 04/02/2017
  */
 
 package assembler;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.io.*;
 
 /**
  * Encapsula o código de leitura. Carrega as instruções na linguagem assembly,
@@ -17,14 +15,13 @@ import java.util.Scanner;
  * Além disso, remove todos os espaços em branco e comentários.
  */
 public class Parser {
-	LinkedList<String> commands;
-	LinkedList<String> dirty;
-	String command;
-	public String currentCommand = "";
-	int lineNumber = 0;
-	Scanner reader;
-	
-	
+
+    public String currentCommand = "";  // comando atual
+    public String inputFile;		    // arquivo de leitura
+    public int lineNumber = 0;			// linha atual do arquivo (nao do codigo gerado)
+    public String currentLine;			// linha de codigo atual
+    boolean simulator;                  // Testa se é para simulador e descarta limitações do hardware do Z0
+    private BufferedReader fileReader;  // leitor de arquivo
 
     /** Enumerator para os tipos de comandos do Assembler. */
     public enum CommandType {
@@ -33,52 +30,34 @@ public class Parser {
         L_COMMAND       // comandos de Label (símbolos)
     }
 
-    /**
+    /** 
      * Abre o arquivo de entrada NASM e se prepara para analisá-lo.
      * @param file arquivo NASM que será feito o parser.
      */
-    public Parser(String file) {
-    	 File arquivo = new File(file);
-
-    	    try {
-
-    	        reader = new Scanner(arquivo);
-
-    	        
-    	     
-    	    } 
-    	    catch (FileNotFoundException e) {
-    	        e.printStackTrace();
-    	    }
-    				
-    			
-    		}
-
-
+    public Parser(String file) throws FileNotFoundException {
+        this.inputFile = file;
+        this.fileReader = new BufferedReader(new FileReader(file));
+        this.lineNumber = 0;
+        this.simulator = false;
+    }
 
     /**
      * Carrega uma instrução e avança seu apontador interno para o próxima
      * linha do arquivo de entrada. Caso não haja mais linhas no arquivo de
      * entrada o método retorna "Falso", senão retorna "Verdadeiro".
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
-     * @throws IOException 
      */
-    public Boolean advance() {
-    	String currentLine = reader.nextLine();
-    	lineNumber++;
-    	while (true){
-    		
-	    	if (currentLine == null){
-	            return false;
-	    	}
-	        currentCommand = currentLine.replaceAll(";.*$", "").trim();
-	        if (currentCommand.equals("")){
-	            continue;
-	        }
-	        return true; 
-    	}
-    	
-    		
+    public Boolean advance() throws IOException {
+        while(true){
+            currentLine = fileReader.readLine();
+            lineNumber++;
+            if (currentLine == null)
+                return false;  // caso não haja mais comandos
+            currentCommand = currentLine.replaceAll(";.*$", "").trim();
+            if (currentCommand.equals(""))
+                continue;
+            return true;   // caso um comando seja encontrado
+        }
     }
 
     /**
@@ -86,10 +65,8 @@ public class Parser {
      * @return a instrução atual para ser analilisada
      */
     public String command() {
-        return currentCommand;
-
+      return currentCommand;
     }
-    
 
     /**
      * Retorna o tipo da instrução passada no argumento:
@@ -100,22 +77,13 @@ public class Parser {
      * @return o tipo da instrução.
      */
     public CommandType commandType(String command) {
-    	
-    	if(command.charAt(command.length()-1) == ':'){
-    		return CommandType.L_COMMAND;
-    	}
-    	else if (command.length() > 4){
-    		if (command.charAt(0) == 'l'){
-        		return CommandType.A_COMMAND;
-    		}
-    		else{
-        		return CommandType.C_COMMAND;
-        	}
-    	}
-    	else{
-    		return CommandType.C_COMMAND;
-    	}
-    	
+        if (command.startsWith("lea")) {
+            return CommandType.A_COMMAND;  // A_COMMAND for lea xxx
+        } else if (command.endsWith(":")) {
+            return CommandType.L_COMMAND;  // L_COMMAND for a label, xxx:
+        } else {
+            return CommandType.C_COMMAND;  // C_COMMAND for mov, etc...
+        }
     }
 
     /**
@@ -125,16 +93,8 @@ public class Parser {
      * @return somente o símbolo ou o valor número da instrução.
      */
     public String symbol(String command) {
-    	if (commandType(command) == CommandType.A_COMMAND){
-    		for (int i=0; i<command.length(); i++){
-    			if (command.charAt(i) == ','){
-    				command = command.substring(6, i);
-    			
-    			}
-    		}	
-    	}
-    		
-    	return command;
+        String[] array = command.split("[ ,]+");
+        return array[1].substring(1);
     }
 
     /**
@@ -143,11 +103,11 @@ public class Parser {
      * @param  command instrução a ser analisada.
      * @return o símbolo da instrução (sem os dois pontos).
      */
-    public String label(String command) {
-    	if (commandType(command) == CommandType.L_COMMAND){
-    		command = command.substring(0,command.length()-1);
-    	}
-    	return command;
+    public String label(String command){
+        if (command.endsWith(":")) {
+            return command.replace(":", "");
+        } 
+        return command;
     }
 
     /**
@@ -157,11 +117,22 @@ public class Parser {
      * @return um vetor de string contento os tokens da instrução (as partes do comando).
      */
     public String[] instruction(String command) {
-    	command = command.replaceAll(",", " ");
-    	String[] commands = command.split(" ");
+        return command.split("[ ,]+");
+    }
+
+    // fecha o arquivo de leitura
+    public void close() throws IOException {
+        fileReader.close();
+    }
+
+    // Em caso de simulação, vai permitir certas operações
+    public void setSimulator(boolean testSimulator) {
+      this.simulator = testSimulator;
+    }
     
-    	return commands;
-    	
+    // Pega o valor da flag de simulador
+    public boolean getSimulator() {
+      return this.simulator;
     }
 
 }
