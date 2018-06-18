@@ -21,9 +21,9 @@ public class Parser {
 	LinkedList<String> dirty;
 	String command;
 	public String currentCommand = "";
-	
-	Scanner reader;
 	int lineNumber = 0;
+	Scanner reader;
+	
 	
 
     /** Enumerator para os tipos de comandos do Assembler. */
