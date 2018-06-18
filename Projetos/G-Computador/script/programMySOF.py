@@ -2,7 +2,7 @@
 # /2018
 # Disciplina Elementos de Sistemas
 #
-# Abril/2018
+# Abril/2018   '..',
 
 import os
 import time
@@ -12,7 +12,7 @@ PATH_TOOLS_SCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..
 sys.path.insert(0,PATH_TOOLS_SCRIPT)
 from writeSOF import writeSOF
 
-PATH_CDF = os.path.join('..', 'Quartus', 'DE0_CV_Default.cdf')
+PATH_CDF = os.path.join( 'Quartus', 'DE0_CV_Default.cdf')
 
 def programSOF():
 

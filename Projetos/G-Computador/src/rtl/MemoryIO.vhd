@@ -150,11 +150,11 @@ sel_dmux <= "00" when (ADDRESS <= "011111111111111") else --16383
             "10" when (ADDRESS <= "101001010111111") else -- 21183;
             "11" ;
 
-wren_ram <= '1' when (ADDRESS <= "011111111111111") else --16383
+wren_ram <= '1' when (ADDRESS <= "011111111111111") AND (LOAD = '1') else --16383
             '0';
-load_reg <= '1' when (ADDRESS <= "101001011000000") else --16383
+load_reg <= '1' when (ADDRESS <= "101001011000000") AND (LOAD = '1') else --16383
             '0';
-load_screen <= '1' when (ADDRESS > "011111111111111") and (ADDRESS <= "101001010111111") else --16383
+load_screen <= '1' when ((ADDRESS > "011111111111111") and (ADDRESS <= "101001010111111") ) AND (LOAD = '1') else --16383
             '0';
 
 OUTPUT <= out_ram when (ADDRESS <= "011111111111111") else 

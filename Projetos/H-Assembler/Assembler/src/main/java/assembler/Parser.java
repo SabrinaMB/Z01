@@ -20,7 +20,10 @@ public class Parser {
 	LinkedList<String> commands;
 	LinkedList<String> dirty;
 	String command;
+	public String currentCommand = "";
+	
 	Scanner reader;
+	int lineNumber = 0;
 	
 
     /** Enumerator para os tipos de comandos do Assembler. */
@@ -51,7 +54,7 @@ public class Parser {
     			
     		}
 
-    
+
 
     /**
      * Carrega uma instrução e avança seu apontador interno para o próxima
@@ -61,12 +64,21 @@ public class Parser {
      * @throws IOException 
      */
     public Boolean advance() {
-    	if(reader.hasNext() == true) {
-            return true;
-        }
-    	else{
-    		return false;
+    	String currentLine = reader.nextLine();
+    	lineNumber++;
+    	while (true){
+    		
+	    	if (currentLine == null){
+	            return false;
+	    	}
+	        currentCommand = currentLine.replaceAll(";.*$", "").trim();
+	        if (currentCommand.equals("")){
+	            continue;
+	        }
+	        return true; 
     	}
+    	
+    		
     }
 
     /**
@@ -74,26 +86,8 @@ public class Parser {
      * @return a instrução atual para ser analilisada
      */
     public String command() {
-    	command = reader.next();
-    	for(int i =0; i< command.length();i++){
-    		if (command.charAt(i) == ';'){
-    			command = command.substring(0, i);
-    		}
-    		if(command.charAt(i) != (command.length()-1)){
-	    		if (command.charAt(i) == ' ' && command.length() != (i+1)){
-	    			if (command.charAt(i+1) == ' '){
-	    				command = command.substring(0,i+1) + command.substring(i+2,command.length()-1); 
-	    			}
-	    		}
-    		}
-    	
-    		
-    	}
-    	if (command == ""){
-    		this.command();
-    	}
-    	
-    	return command;
+        return currentCommand;
+
     }
     
 

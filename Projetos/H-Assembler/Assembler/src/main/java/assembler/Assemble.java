@@ -71,6 +71,7 @@ public class Assemble {
     public void generateMachineCode() throws FileNotFoundException, IOException{
         Parser parser = new Parser(inputFile);  // abre o arquivo e aponta para o começo
         String line = new String();
+        String bin = new String();
         String[] commands;
         String LMcommand;
         while(parser.advance()){
@@ -78,14 +79,16 @@ public class Assemble {
             line = parser.command();
             commands = parser.instruction(line);
             if (parser.commandType(line) == Parser.CommandType.C_COMMAND){
-            	LMcommand = "0";
+            	LMcommand = "1";
                 LMcommand += Code.comp(commands);
                 LMcommand += Code.dest(commands);
                 LMcommand += Code.jump(commands);               
                 
             }
             if (parser.commandType(line) == Parser.CommandType.A_COMMAND){
-            	LMcommand = "1";
+            	bin = parser.symbol(line);
+            	LMcommand = "0";
+            	LMcommand += Code.toBinary(bin);
             	// COMPLETAR ISSO (Leaw) AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
                 
             }

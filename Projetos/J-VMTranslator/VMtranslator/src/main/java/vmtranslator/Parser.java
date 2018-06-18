@@ -20,6 +20,7 @@ public class Parser {
 
     public String currentCommand = "";  // comando atual
     private BufferedReader fileReader;  // leitor de arquivo
+	int lineNumber = 0;
 
     /** Enumerator para os tipos de comandos de Linguagem de Máquina Virtua a Pilha. */
     public static enum CommandType {
@@ -49,11 +50,18 @@ public class Parser {
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
      */
     public Boolean advance() throws IOException {
-    	if(fileReader.readLine()  != null) {
-            return true;
-        }
-    	else{
-    		return false;
+    	String currentLine = fileReader.readLine();
+    	lineNumber++;
+    	while (true){
+    		
+	    	if (currentLine == null){
+	            return false;
+	    	}
+	        currentCommand = currentLine.replaceAll(";.*$", "").trim();
+	        if (currentCommand.equals("")){
+	            continue;
+	        }
+	        return true; 
     	}
     }
 
@@ -62,26 +70,11 @@ public class Parser {
      * @return a instrução atual para ser analilisada
      * @throws IOException 
      */
-    public String command() throws IOException {
-    	currentCommand = fileReader.readLine();
-    	for(int i =0; i< currentCommand.length();i++){
-    		if (currentCommand.charAt(i) == '/' && currentCommand.charAt(i+1) =='/'){
-    			currentCommand = currentCommand.substring(0, i);
-    		}
-    		if (currentCommand.charAt(i) == ' ' && currentCommand.length() != (i+1)){
-    			if (currentCommand.charAt(i+1) == ' '){
-    				currentCommand = currentCommand.substring(0,i+1) + currentCommand.substring(i+2,currentCommand.length()-1); 
-    			}
-    		}
+    public String command() {
+    	return currentCommand;
     	
-    		
-    	}
-    	if (currentCommand == ""){
-    		this.command();
-    	}
-    	
-      return currentCommand;
     }
+    	
 
     /**
      * Retorna o tipo da instrução passada no argumento:
