@@ -211,7 +211,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $LCL, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -227,7 +227,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $ARG, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -243,7 +243,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $THIS, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -259,7 +259,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $THAT, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -275,7 +275,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $Static, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -291,7 +291,7 @@ public class Code {
             	commands.add("movw (%A), %D");
             	commands.add("leaw $Temp, %A");
             	commands.add("movw (%A), %S");
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("addw %A, %S, %A");
             	commands.add("movw (%A), %S");
             	commands.add("leaw $SP, %A");
@@ -308,7 +308,7 @@ public class Code {
                 	commands.add("movw (%A), %D");
                 	commands.add("leaw $THIS, %A");
                 	commands.add("movw (%A), %S");
-                	commands.add(String.format("leaw $%d, %A", index));
+                	commands.add(String.format("leaw $%d, %%A", index));
                 	commands.add("addw %A, %S, %A");
                 	commands.add("movw (%A), %S");
                 	commands.add("leaw $SP, %A");
@@ -324,7 +324,7 @@ public class Code {
                 	commands.add("movw (%A), %D");
                 	commands.add("leaw $THAT, %A");
                 	commands.add("movw (%A), %S");
-                	commands.add(String.format("leaw $%d, %A", index));
+                	commands.add(String.format("leaw $%d, %%A", index));
                 	commands.add("addw %A, %S, %A");
                 	commands.add("movw (%A), %S");
                 	commands.add("leaw $SP, %A");
@@ -339,7 +339,7 @@ public class Code {
             commands.add(String.format("; %d - PUSH %s %d", lineCode++ ,segment, index));
 
             if (segment.equals("constant")) {
-            	commands.add(String.format("leaw $%d, %A", index));
+            	commands.add(String.format("leaw $%d, %%A", index));
             	commands.add("movw %A, %S");
             	commands.add("leaw $SP, %A");
             	commands.add("movw (%A), %A");
