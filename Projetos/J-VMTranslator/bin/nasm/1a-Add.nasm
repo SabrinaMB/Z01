@@ -22,29 +22,19 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
-; 3 - ADD
-leaw $SP, %A
-movw (%A), %A
-decw %A
-movw (%A), %D
-decw %A
-addw %D, (%A), %S
-movw %S, (%A)
-incw %A
-movw %A, %D
-leaw $SP, %A
-movw %D, (%A)
 ; 4 - POP temp 0
 leaw $SP, %A
 movw (%A), %A
 decw %A
 movw (%A), %D
+leaw $Temp, %A
 movw %A, %S
-leaw $SP, %A
-movw %S, (%A)
 leaw $0, %A
-movw %A, %S
-leaw $5, %A
-addw %S, %A, %A
+addw %A, %S, %A
+movw (%A), %A
 movw %D, (%A)
+leaw $SP, %A
+movw (%A), %S
+decw %S
+movw %S, (%A)
 ; End

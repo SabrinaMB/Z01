@@ -23,12 +23,14 @@ leaw $SP, %A
 movw (%A), %A
 decw %A
 movw (%A), %D
+leaw $Temp, %A
 movw %A, %S
-leaw $SP, %A
-movw %S, (%A)
 leaw $0, %A
-movw %A, %S
-leaw $5, %A
-addw %S, %A, %A
+addw %A, %S, %A
+movw (%A), %A
 movw %D, (%A)
+leaw $SP, %A
+movw (%A), %S
+decw %S
+movw %S, (%A)
 ; End

@@ -23,11 +23,10 @@ movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
 ; 6 - PUSH argument 0
-leaw $0, %A
-movw %A, %S
 leaw $ARG, %A
-movw (%A), %A
-addw %S, %A, %A
+movw %A, %D
+leaw $0, %A
+addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
@@ -37,11 +36,10 @@ movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
 ; 7 - PUSH argument 1
-leaw $1, %A
-movw %A, %S
 leaw $ARG, %A
-movw (%A), %A
-addw %S, %A, %A
+movw %A, %D
+leaw $1, %A
+addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
@@ -50,16 +48,4 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
-; 8 - ADD
-leaw $SP, %A
-movw (%A), %A
-decw %A
-movw (%A), %D
-decw %A
-addw %D, (%A), %S
-movw %S, (%A)
-incw %A
-movw %A, %D
-leaw $SP, %A
-movw %D, (%A)
 ; End

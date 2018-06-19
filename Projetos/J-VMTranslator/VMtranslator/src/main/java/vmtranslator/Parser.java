@@ -131,3 +131,4 @@ public class Parser {
     public void close() throws IOException {
         fileReader.close();
     }
+}
