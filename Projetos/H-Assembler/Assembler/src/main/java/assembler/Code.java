@@ -63,11 +63,11 @@ public class Code {
         char[] binAB = {'0','0'};
         
         // A e B
-        if (mnemnonic.length > 2){
+        if (mnemnonic.length > 3){
             if (mnemnonic[1].equals("(%A)") || mnemnonic[2].equals("(%A)")) binAB[0] = '1';
             if (mnemnonic[1].equals("%S") || mnemnonic[2].equals("%S")) binAB[1] = '1'; 
         } 
-        else if (mnemnonic.length == 2){
+        else if (mnemnonic.length <= 3){
             if (mnemnonic[1].equals("(%A)")) binAB[0] = '1';
             if (mnemnonic[1].equals("%S")) binAB[1] = '1';
         }
@@ -76,8 +76,8 @@ public class Code {
         //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
         if (mnemnonic[0].equals("movw")){
             String out = String.valueOf(binAB);
-            if (mnemnonic[2].contains("%A")) return out+"001100";
-            else return out+"110000";
+            if (mnemnonic[1].contains("%A")) return out+"110000";
+            else return out+"001100";
         }
         
         // Or
