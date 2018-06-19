@@ -576,16 +576,9 @@ public class Code {
      * @param  label define nome do label (marcador) a ser escrito.
      */
     public void writeLabel(String label) {
-    	count += 1;
-    	String[] splited = new String[2];
-    	splited[0] = new String();
-    	splited[1] = new String();
-    	splited = label.split(" ");//acho que tá errado
-    	String counts = Integer.toString(count);
-    	
-        List<String> commands = new ArrayList<String>();   
+
+        List<String> commands = new ArrayList<String>();
         commands.add( "; Label (marcador)" );
-        commands.add( String.format("%s%s:", splited[1],counts));
 
     }
 
