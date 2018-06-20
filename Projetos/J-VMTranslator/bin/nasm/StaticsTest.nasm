@@ -94,6 +94,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 10 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 13 - PUSH argument 0
 leaw $ARG, %A
 movw %A, %D
@@ -181,6 +193,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 22 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

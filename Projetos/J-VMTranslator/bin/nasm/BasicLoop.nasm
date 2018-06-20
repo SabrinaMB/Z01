@@ -71,6 +71,39 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 6 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $OGBFRRLVB, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $AYUAVSCWJ, %A
+jmp
+nop
+OGBFRRLVB:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+AYUAVSCWJ:
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 8 - PUSH temp 0
 leaw $Temp, %A
 movw %A, %D
@@ -89,6 +122,18 @@ leaw $1, %A
 movw %A, %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 10 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
@@ -130,6 +175,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 14 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

@@ -124,6 +124,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 10 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 11 - PUSH this 2
 leaw $THIS, %A
 movw %A, %D
@@ -137,6 +149,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 12 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 13 - PUSH that 6
 leaw $THAT, %A
 movw %A, %D
@@ -145,6 +169,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 14 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

@@ -12,6 +12,7 @@ package vmtranslator;
 import java.util.*;
 import java.io.*;
 import java.nio.file.*;
+import java.util.Random;
 
 /**
  * Traduz da linguagem vm para códigos assembly.
@@ -22,6 +23,9 @@ public class Code {
     String filename = null;         // arquivo .vm de entrada
     int lineCode = 0;               // Linha do codigo vm que gerou as instrucoes
     int count = 0; 
+    String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    
 
     /**
      * Abre o arquivo de saida e prepara para escrever
@@ -57,18 +61,7 @@ public class Code {
             commands.add("incw %A");
             commands.add("movw %A, %S");
             commands.add("leaw $SP, %A");
-            commands.add("movw %S, (%A)");
-//            commands.add("leaw $SP, %A");
-//            commands.add("movw (%A), %D");
-//            commands.add("decw %D");
-//            commands.add("movw %D, (%A)");
-//            commands.add("movw (%A), %A");
-//            commands.add("movw (%A), %D");
-//            commands.add("leaw $SP, %A");
-//            commands.add("subw (%A), $1, %A");
-//            commands.add("addw (%A), %D, %D");
-//            commands.add("movw  %D, (%A)");
-            
+            commands.add("movw %S, (%A)");           
             
             
 
@@ -79,7 +72,7 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw (%A), %D");
             commands.add("decw %A");
-            commands.add("sub (%A), %D, %S");
+            commands.add("subw (%A), %D, %S");
             commands.add("movw %S, (%A)");
             
             commands.add("incw %A");
@@ -89,7 +82,7 @@ public class Code {
 
         } else if (command.equals("neg")) {
             commands.add(String.format("; %d - NEG", lineCode++));
-            commands.add("leaw $0, %A");
+            commands.add("leaw $SP, %A");
             commands.add("movw (%A), %A");
             commands.add("decw %A");
             commands.add("movw (%A), %D");
@@ -97,6 +90,24 @@ public class Code {
             commands.add("movw %D, (%A)");
 
         } else if (command.equals("eq")) {
+        	String labelT1 = "";
+        	Random random1 = new Random();
+            int randomLen1 = 3+random1.nextInt(9);
+            for (int i = 0; i < randomLen1; i++) {
+                char c1 = letras.charAt(random1.nextInt(letras.length()-1));
+                labelT1+=c1;
+            }
+                
+            String labelT2 = "";
+            Random random2 = new Random();
+            int randomLen2 = 3+random2.nextInt(9);
+            for (int j = 0; j < randomLen2; j++) {
+                char c2 = letras.charAt(random2.nextInt(letras.length()-1));
+                labelT2+=c2;
+            }
+                
+            
+        	
             commands.add(String.format("; %d - EQ", lineCode++));
             commands.add("leaw $SP, %A");
             commands.add("movw (%A), %A");
@@ -104,7 +115,7 @@ public class Code {
             commands.add("movw (%A), %D");
             commands.add("decw %A");
             commands.add("sub (%A), %D, %D");
-            commands.add("leaw $INICIO, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT1));
             
             commands.add("je %D");
             commands.add("nop");
@@ -115,12 +126,12 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D, (%A)");
             
-            
-            commands.add("leaw $FINAL, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT2));
             commands.add("jmp");
             commands.add("nop");
             
-            commands.add("INICIO:");
+            
+            commands.add(String.format("%s:", labelT1));
             commands.add("leaw $0, %A");
             commands.add("notw %A");
             commands.add("movw %A, %D");
@@ -130,7 +141,7 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D, (%A)");
             
-            commands.add("FINAL:");
+            commands.add(String.format("%s:", labelT2));
             commands.add("incw %A");
             commands.add("movw %A, %S");
             commands.add("leaw $SP, %A");
@@ -140,6 +151,22 @@ public class Code {
             
 
         } else if (command.equals("gt")) {
+        	
+        	String labelT1 = "";
+        	Random random1 = new Random();
+            int randomLen1 = 3+random1.nextInt(9);
+            for (int i = 0; i < randomLen1; i++) {
+                char c1 = letras.charAt(random1.nextInt(letras.length()-1));
+                labelT1+=c1;
+            }
+                
+            String labelT2 = "";
+            Random random2 = new Random();
+            int randomLen2 = 3+random2.nextInt(9);
+            for (int j = 0; j < randomLen2; j++) {
+                char c2 = letras.charAt(random2.nextInt(letras.length()-1));
+                labelT2+=c2;
+            }
             commands.add(String.format("; %d - GT", lineCode++));
             commands.add("leaw $SP, %A");
             commands.add("movw (%A), %A");
@@ -147,7 +174,7 @@ public class Code {
             commands.add("movw (%A), %D");
             commands.add("decw %A");
             commands.add("sub (%A), %D, %D");
-            commands.add("leaw $INICIO, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT1));
             
             commands.add("jg %D");
             commands.add("nop");
@@ -158,11 +185,11 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D, (%A)");
             
-            commands.add("leaw $FINAL, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT2));
             commands.add("jmp");
             commands.add("nop");
             
-            commands.add("INICIO:");
+            commands.add(String.format("%s:", labelT1));
             commands.add("leaw $0, %A");
             commands.add("notw %A");
             commands.add("movw %A, %D");
@@ -172,13 +199,30 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D, (%A)");
             
-            commands.add("FINAL:");
+            commands.add(String.format("%s:", labelT2));
             commands.add("incw %A");
             commands.add("movw %A, %S");
             commands.add("leaw $SP, %A");
             commands.add("movw %S, (%A)");
 
         } else if (command.equals("lt")) {
+        	
+        	String labelT1 = "";
+        	Random random1 = new Random();
+            int randomLen1 = 3+random1.nextInt(9);
+            for (int i = 0; i < randomLen1; i++) {
+                char c1 = letras.charAt(random1.nextInt(letras.length()-1));
+                labelT1+=c1;
+               
+            }
+                
+            String labelT2 = "";
+            Random random2 = new Random();
+            int randomLen2 = 3+random2.nextInt(9);
+            for (int j = 0; j < randomLen2; j++) {
+                char c2 = letras.charAt(random2.nextInt(letras.length()-1));
+                labelT2+=c2;
+            }
             commands.add(String.format("; %d - LT", lineCode++));
             commands.add("leaw $SP, %A");
             commands.add("movw (%A), %A");
@@ -186,7 +230,7 @@ public class Code {
             commands.add("movw (%A), %D");
             commands.add("decw %A");
             commands.add("sub (%A), %D, %D");
-            commands.add("leaw $INICIO, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT1));
             
             commands.add("jl %D");
             commands.add("nop");
@@ -198,11 +242,11 @@ public class Code {
             commands.add("movw %D, (%A)");
             
             
-            commands.add("leaw $FINAL, %A");
+            commands.add(String.format("leaw $%s, %%A", labelT2));
             commands.add("jmp");
             commands.add("nop");
             
-            commands.add("INICIO:");
+            commands.add(String.format("%s:", labelT1));
             commands.add("leaw $0, %A");
             commands.add("notw %A");
             commands.add("movw %A, %D");
@@ -212,7 +256,7 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D, (%A)");
             
-            commands.add("FINAL:");
+            commands.add(String.format("%s:", labelT2));
             commands.add("incw %A");
             commands.add("movw %A, %S");
             commands.add("leaw $SP, %A");
@@ -258,6 +302,10 @@ public class Code {
             commands.add("movw %D, (%A)");
 
         }
+        
+        String[] stringArray = new String[ commands.size() ];
+        commands.toArray( stringArray );
+        write(stringArray);
 
     }
 
@@ -429,6 +477,7 @@ public class Code {
                 commands.add("leaw $SP, %A");
                 commands.add("movw (%A), %A");
                 commands.add("movw %S, (%A)");
+                
                 commands.add("incw %A");
                 commands.add("movw %A, %S");
                 commands.add("leaw $SP, %A");
@@ -609,7 +658,9 @@ public class Code {
 
         List<String> commands = new ArrayList<String>();
         commands.add(String.format("; %d - Goto Incondicional", lineCode++));
-
+        commands.add("leaw $"+label+", %A");
+        commands.add("jmp");
+        commands.add("nop");
     }
 
     /**

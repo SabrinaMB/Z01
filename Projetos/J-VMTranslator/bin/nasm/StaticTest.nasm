@@ -99,6 +99,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 8 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 9 - PUSH static 8
 leaw $Static, %A
 movw %A, %D
@@ -107,6 +119,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 10 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

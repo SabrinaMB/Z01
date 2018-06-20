@@ -212,6 +212,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 17 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 18 - PUSH argument 1
 leaw $ARG, %A
 movw %A, %D
@@ -220,6 +232,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 19 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
@@ -251,6 +275,30 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 22 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 23 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 24 - PUSH temp 6
 leaw $Temp, %A
 movw %A, %D
@@ -259,6 +307,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 25 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

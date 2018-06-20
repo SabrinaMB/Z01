@@ -22,6 +22,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 3 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 4 - PUSH constant 3
 leaw $3, %A
 movw %A, %S
@@ -108,6 +120,39 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 14 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $HOJM, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $EAMV, %A
+jmp
+nop
+HOJM:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+EAMV:
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 16 - PUSH local 0
 leaw $LCL, %A
 movw %A, %D
@@ -129,6 +174,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 18 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
@@ -167,6 +224,18 @@ leaw $1, %A
 movw %A, %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 22 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S

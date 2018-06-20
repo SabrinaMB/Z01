@@ -28,6 +28,39 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 3 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $DT, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $Y, %A
+jmp
+nop
+DT:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+Y:
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 5 - PUSH constant 3
 leaw $3, %A
 movw %A, %S
@@ -69,6 +102,39 @@ movw %A, %S
 leaw $SP, %A
 movw (%A), %A
 movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 9 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $FQS, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $UKDQXLAOK, %A
+jmp
+nop
+FQS:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+UKDQXLAOK:
 incw %A
 movw %A, %S
 leaw $SP, %A

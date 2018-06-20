@@ -113,6 +113,39 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 13 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $KHCN, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $GJWPVIE, %A
+jmp
+nop
+KHCN:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+GJWPVIE:
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 15 - PUSH local 0
 leaw $LCL, %A
 movw %A, %D
@@ -134,6 +167,18 @@ addw %D, %A, %A
 movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 17 - ADD
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+addw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
@@ -172,6 +217,18 @@ leaw $1, %A
 movw %A, %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 21 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
@@ -309,6 +366,18 @@ incw %A
 movw %A, %S
 leaw $SP, %A
 movw %S, (%A)
+; 35 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
 ; 36 - POP local 3
 leaw $SP, %A
 movw (%A), %A
@@ -343,6 +412,39 @@ movw (%A), %S
 leaw $SP, %A
 movw (%A), %A
 movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 39 - EQ
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+sub (%A), %D, %D
+leaw $JSM, %A
+je %D
+nop
+leaw $0, %A
+movw %A, %D
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+leaw $V, %A
+jmp
+nop
+JSM:
+leaw $0, %A
+notw %A
+movw %A, %D
+leaw $SP, %A
+movw (%A), %A
+decw %A
+decw %A
+movw %D, (%A)
+V:
 incw %A
 movw %A, %S
 leaw $SP, %A
@@ -406,6 +508,18 @@ leaw $1, %A
 movw %A, %S
 leaw $SP, %A
 movw (%A), %A
+movw %S, (%A)
+incw %A
+movw %A, %S
+leaw $SP, %A
+movw %S, (%A)
+; 47 - SUB
+leaw $SP, %A
+movw (%A), %A
+decw %A
+movw (%A), %D
+decw %A
+subw (%A), %D, %S
 movw %S, (%A)
 incw %A
 movw %A, %S
